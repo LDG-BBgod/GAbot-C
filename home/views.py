@@ -5,8 +5,8 @@ from .models import Home
 from gauser.models import Compare
 
 def HomeView(request):
-    homeObjectCount = 1000
-    # homeObjectCount = len(Compare.objects.all()) + 10000  #10000개 추가
+
+    homeObjectCount = len(Compare.objects.all()) + 10000  #10000개 추가
     return render(request, 'home.html', {'count': homeObjectCount})
 
 def AgreementView(request):
