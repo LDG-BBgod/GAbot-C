@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="132.516" height="132.519" viewBox="0 0 132.516 132.519">
+  <g id="call" transform="translate(-3.984 -6.854)">
+    <path id="패스_33" data-name="패스 33" d="M21.667,64.135a47.885,47.885,0,1,1,95.77,0" transform="translate(1.138)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="8.125"/>
+    <path id="패스_34" data-name="패스 34" d="M121.443,86.052V74.823a11.971,11.971,0,0,0-9.069-11.612L101.959,60.6A3.591,3.591,0,0,0,97.5,64.085v32.7a3.591,3.591,0,0,0,4.465,3.49l10.415-2.6a11.971,11.971,0,0,0,9.062-11.612Z" transform="translate(9.103 4.647)" fill="none" stroke="#000" stroke-width="8.125"/>
+    <path id="패스_35" data-name="패스 35" d="M10.833,86.052V74.823A11.971,11.971,0,0,1,19.9,63.211L30.317,60.6a3.591,3.591,0,0,1,4.459,3.484v32.7a3.591,3.591,0,0,1-4.459,3.49L19.9,97.67a11.971,11.971,0,0,1-9.068-11.612Z" transform="translate(0 4.647)" fill="none" stroke="#000" stroke-width="8.125"/>
+    <path id="패스_36" data-name="패스 36" d="M21.667,97.5v2.992a11.971,11.971,0,0,0,11.971,11.972h20.95" transform="translate(1.138 8.534)" fill="none" stroke="#000" stroke-width="8.125"/>
+    <path id="패스_37" data-name="패스 37" d="M57.728,120.874H75.685a8.978,8.978,0,1,0,0-17.957H57.728a8.978,8.978,0,0,0,0,17.957Z" transform="translate(3.983 9.103)" 
+    fill="none" stroke="#000" stroke-width="8.125"/>
+  </g>
+  <path id="call2" d="M132.867,9.363,123.683.177.351,123.509l5.522,5.522L9.538,132.7Z" transform="translate(-0.351 -0.177)" fill="#3F3D56"/>
+</svg>

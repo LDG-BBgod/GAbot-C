@@ -1,0 +1,654 @@
+@media (min-width: 1000px) {
+    /***************************/
+    /******** SECTION **********/
+    /***************************/
+
+    .section{
+        display: flex;
+        justify-content: center;
+        background: #F6F6F6;
+        min-height: 100vh;
+    }
+    .section .box{
+        margin-top: 150px;
+        margin-bottom: 150px;
+        width: 950px;
+        height: 100%;
+        border: 3px solid var(--color4);
+        border-radius: 40px;
+        box-shadow: 10px 10px var(--color4);
+        background: #fff;
+        position: relative;
+    }
+    .inner-myinsurance{
+        width: 80%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        position:  relative;
+    }
+    /***************************/
+    /********** INPUT **********/
+    /***************************/
+    .input-default{
+        height: 2em;
+        padding-left: 5px;
+        border: 2px solid #cccccc;
+        border-radius: 4px;
+    }
+    .input-default::-webkit-input-placeholder { color: #cccccc;}  /*크롬*/
+    .input-default::-ms-input-placeholder { color: #cccccc;}      /*엣지,익스플로러*/
+    .input-default::-moz-input-placeholder { color: #cccccc;}     /*파폭*/
+    .input-default:focus {outline: none;}
+
+    /***************************/
+    /********* BUTTON **********/
+    /***************************/
+
+    .button-prev{
+        width: 150px;
+        padding: 0.3em;
+        font-weight: bold;
+        background: #fff;
+        border: 3px solid #cccccc;
+        border-radius: 2em;
+        color: #cccccc;
+        position: absolute;
+        left: 0;
+        bottom: 50px;
+    }
+    .button-next{
+        width: 300px;
+        padding: 0.3em;
+        font-weight: bold;
+        background: var(--color4);
+        border: 3px solid var(--color4);
+        border-radius: 2em;
+        color: #fff;
+        position: absolute;
+        right: 0;
+        bottom: 50px;
+    }
+    .myinsurance-button{
+        font-size: 25px;
+        cursor: pointer;
+    }
+    /***************************/
+    /********** NAV  ***********/
+    /***************************/
+    .homeButton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: url(../img/compare_home.svg) 50% 40% no-repeat;
+        background-size: 60%;
+        height: 40px;
+        width: 40px;
+        border: 5px solid var(--color4);
+        border-radius: 40px;
+        box-shadow: 4px 4px 8px rgba(100, 100, 100, 0.3);
+        z-index: 999;
+    }
+
+    /***************************/
+    /********* ERROR ***********/
+    /***************************/
+    .error-default{
+        font-size: 15px;
+        color: #ff0000;
+        position: absolute;
+        bottom: 130px;
+
+    }
+    /***************************/
+    /****** SECTION-START ******/
+    /***************************/
+
+    .section-start{
+
+    }
+    .section-start .inner-myinsurance{
+        margin-top: 150px;
+        padding-bottom: 200px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .section-start .section1-img{
+        background: url('../img/myinsurance_section1_1.svg') no-repeat;
+        background-size: contain;
+        height: 150px;
+        width: 150px;
+    }
+    .section-start .content{
+        width: 70%;
+    }
+    .section-start .content h3{
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 40px;
+        color: var(--color3);
+        
+    }
+
+    /***************************/
+    /*** SECTION-INFORMATION ***/
+    /***************************/
+
+    .section-information{
+
+    }
+    .section-information .inner-myinsurance{
+
+    }
+    .section-information h1{
+        font-size: 25px;
+        font-weight: bold;
+        margin-top: 50px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--color4);
+    }
+    .section-information h3{
+        font-size: 20px;
+        margin-top: 35px;
+    }
+    .section-information .input-phone{
+        display: block;
+        margin-top: 20px;
+        font-size: 18px;
+        width: 80%;
+    }
+    .section-information .dateSelectBoxPosition {
+        position: relative;
+        margin-top: 20px;
+    }
+    .section-information .dateSelectBox {
+        position: absolute;
+        top: 0;
+        margin: auto;
+        height: 40px;
+        width: 300px;
+        border: 2px solid var(--color4);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: 0.3s;
+        background: #fff;
+        z-index: 2;
+    }
+    .section-information .dateSelectBox.on {
+        height: 250px;
+        overflow: scroll;
+    }
+    .section-information .dateSelectBox .dateArea1{
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 40px;
+        font-size: 20px;
+        text-align: center;
+        color: var(--color4);
+        line-height: 40px;
+        background: #fff;
+        border-bottom: 2px solid var(--color4);
+        cursor: pointer;
+    }
+    .section-information .dateSelectBox .dateArea2{
+        overflow-y: scroll;
+    }
+    .section-information .dateSelectBox .dateArea2-dateSelectList {
+        margin-left: 5%;
+        font-size: 20px;
+        line-height: 35px;
+        color: #cccccc;
+        height: 35px;
+        border-bottom: 1px solid #cccccc;
+        width: 90%;
+        text-align: center;
+        cursor: pointer;
+    }
+    .section-information .dateSelectBox .dateArea1,
+    .section-information .dateSelectBox .dateArea2{
+        -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+        -ms-user-select: none; 
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    .section-information .dateSelectBox::-webkit-scrollbar {display: none;}
+    .section-information .dateSelectBox .dateArea2::-webkit-scrollbar {display: none;}
+    
+    .section-information .timeSelectBoxPosition {
+        position: relative;
+        margin-top: 20px;
+    }
+    .section-information .timeSelectBox {
+        position: absolute;
+        top: 0;
+        left: 350px;
+        margin: auto;
+        height: 40px;
+        width: 300px;
+        border: 2px solid var(--color4);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: 0.3s;
+        background: #fff;
+        z-index: 2;
+    }
+    .section-information .timeSelectBox.on {
+        height: 250px;
+        overflow: scroll;
+    }
+    .section-information .timeSelectBox .timeArea1{
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 40px;
+        font-size: 20px;
+        text-align: center;
+        color: var(--color4);
+        line-height: 40px;
+        background: #fff;
+        border-bottom: 2px solid var(--color4);
+        cursor: pointer;
+    }
+    .section-information .timeSelectBox .timeArea2{
+        overflow-y: scroll;
+    }
+    .section-information .timeSelectBox .timeArea2-timeSelectList {
+        margin-left: 5%;
+        font-size: 20px;
+        line-height: 35px;
+        color: #cccccc;
+        height: 35px;
+        border-bottom: 1px solid #cccccc;
+        width: 90%;
+        text-align: center;
+        cursor: pointer;
+    }
+    .section-information .timeSelectBox .timeArea1,
+    .section-information .timeSelectBox .timeArea2{
+        -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+        -ms-user-select: none; 
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    .section-information .timeSelectBox::-webkit-scrollbar {display: none;}
+    .section-information .timeSelectBox .timeArea2::-webkit-scrollbar {display: none;}
+
+
+
+
+    .section-information .agreement{
+        margin-top: 120px;
+        padding-bottom: 170px;
+        display: flex;
+        align-items: center;
+    }
+
+
+    .section-information .agreement .input-agreement{
+        height: 22px;
+        width: 22px;
+        -webkit-appearance: none;
+        background: url(../img/myinsurance_agreeCheck_1.svg)  no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
+    .section-information .agreement .input-agreement:checked{
+        height: 22px;
+        width: 22px;
+        background: url(../img/myinsurance_agreeCheck_2.svg)  no-repeat;
+        background-size: contain;
+
+    }
+
+    .section-information .agreement label{
+        margin-left: 8px;
+        font-size: 17px;
+        margin-bottom: 3px;
+        cursor: pointer;
+    }
+    .section-information .agreement .a-agreement {
+        margin-left: 8px;
+        font-size: 15px;
+        color: #cccccc;
+    }
+    .section-information .agreement .a-agreement:hover{
+        color: var(--color4);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 999px) {
+    /***************************/
+    /******** SECTION **********/
+    /***************************/
+
+    .section{
+        background: #F6F6F6;
+        min-height: 100vh;
+    }
+    .section .box{
+
+    }
+    .inner-myinsurance{
+        padding-bottom: 150px;
+        margin: 0 25px;
+        box-sizing: border-box;
+        position:  relative;
+    }
+    /***************************/
+    /********** INPUT **********/
+    /***************************/
+    .input-default{
+        height: 2.5em;
+        padding-left: 5px;
+        border: 2px solid #cccccc;
+        border-radius: 4px;
+    }
+    .input-default::-webkit-input-placeholder { color: #cccccc;}  /*크롬*/
+    .input-default::-ms-input-placeholder { color: #cccccc;}      /*엣지,익스플로러*/
+    .input-default::-moz-input-placeholder { color: #cccccc;}     /*파폭*/
+    .input-default:focus {outline: none;}
+
+    /***************************/
+    /********* BUTTON **********/
+    /***************************/
+
+    .button-prev{
+        width: 20vw;
+        padding: 0.4em;
+        font-weight: bold;
+        background: #fff;
+        border: 3px solid #cccccc;
+        border-radius: 2em;
+        color: #cccccc;
+        position: absolute;
+        left: 0;
+        bottom: 50px;
+    }
+    .button-next{
+        width: 40vw;
+        padding: 0.4em;
+        font-weight: bold;
+        background: var(--color4);
+        border: 3px solid var(--color4);
+        border-radius: 2em;
+        color: #fff;
+        position: absolute;
+        right: 0;
+        bottom: 50px;
+    }
+    .myinsurance-button{
+        font-size: 15px;
+        cursor: pointer;
+        -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+    }
+    /***************************/
+    /********** NAV  ***********/
+    /***************************/
+    .homeButton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 12px;
+        right: 15px;
+        background: url(../img/compare_home.svg) 50% 40% no-repeat;
+        background-size: 50%;
+        height: 40px;
+        width: 40px;
+        z-index: 999;
+        -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+    }
+
+    /***************************/
+    /********* ERROR ***********/
+    /***************************/
+    .error-default{
+        font-size: 10px;
+        color: #ff0000;
+        position: absolute;
+        bottom: 130px;
+
+    }
+    /***************************/
+    /****** SECTION-START ******/
+    /***************************/
+
+    .section-start{
+
+    }
+    .section-start .inner-myinsurance{
+        padding-top: 150px;
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .section-start .section1-img{
+        background: url('../img/myinsurance_section1_1.svg') no-repeat;
+        background-size: contain;
+        height: 100px;
+        width: 100px;
+    }
+    .section-start .content{
+        margin-top: 50px;
+    }
+    .section-start .content h3{
+        text-align: center;
+        word-break: keep-all;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 19px;
+        color: var(--color3);
+    }
+
+    /***************************/
+    /*** SECTION-INFORMATION ***/
+    /***************************/
+
+    .section-information{
+
+    }
+    .section-information .inner-myinsurance{
+
+    }
+    .section-information h1{
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 21px;
+        padding-top: 80px;
+        padding-bottom: 20px;
+        border-bottom: 2px solid var(--color4);
+    }
+    .section-information h1 span::after{
+        display: block;
+        content: '\A';
+    }
+    .section-information h3{
+        font-size: 15px;
+        margin-top: 30px;
+    }
+    .section-information .input-phone{
+        display: block;
+        margin-top: 20px;
+        font-size: 15px;
+        width: 100%;
+    }
+    .section-information .dateSelectBoxPosition {
+        position: relative;
+        margin-top: 20px;
+    }
+    .section-information .dateSelectBox {
+        position: absolute;
+        top: 0;
+        margin: auto;
+        height: 40px;
+        width: 45%;
+        border: 2px solid var(--color4);
+        border-radius: 25px;
+        overflow: hidden;
+        transition: 0.3s;
+        background: #fff;
+        z-index: 2;
+    }
+    .section-information .dateSelectBox.on {
+        height: 180px;
+        overflow: scroll;
+    }
+    .section-information .dateSelectBox .dateArea1{
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 40px;
+        font-size: 17px;
+        text-align: center;
+        color: var(--color4);
+        line-height: 40px;
+        background: #fff;
+        border-bottom: 2px solid var(--color4);
+        cursor: pointer;
+    }
+    .section-information .dateSelectBox .dateArea2{
+        overflow-y: scroll;
+    }
+    .section-information .dateSelectBox .dateArea2-dateSelectList {
+        margin-left: 5%;
+        font-size: 17px;
+        line-height: 30px;
+        color: #cccccc;
+        height: 30px;
+        border-bottom: 1px solid #cccccc;
+        width: 90%;
+        text-align: center;
+        cursor: pointer;
+    }
+    .section-information .dateSelectBox .dateArea1,
+    .section-information .dateSelectBox .dateArea2{
+        -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+        -ms-user-select: none; 
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    .section-information .dateSelectBox::-webkit-scrollbar {display: none;}
+    .section-information .dateSelectBox .dateArea2::-webkit-scrollbar {display: none;}
+
+    .section-information .timeSelectBoxPosition {
+        position: relative;
+        margin-top: 20px;
+    }
+    .section-information .timeSelectBox {
+        position: absolute;
+        top: 0;
+        left: 55%;
+        margin: auto;
+        height: 40px;
+        width: 45%;
+        border: 2px solid var(--color4);
+        border-radius: 25px;
+        overflow: hidden;
+        transition: 0.3s;
+        background: #fff;
+        z-index: 2;
+    }
+    .section-information .timeSelectBox.on {
+        height: 200px;
+        overflow: scroll;
+    }
+    .section-information .timeSelectBox .timeArea1{
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 40px;
+        font-size: 17px;
+        text-align: center;
+        color: var(--color4);
+        line-height: 40px;
+        background: #fff;
+        border-bottom: 2px solid var(--color4);
+        cursor: pointer;
+    }
+    .section-information .timeSelectBox .timeArea2{
+        overflow-y: scroll;
+    }
+    .section-information .timeSelectBox .timeArea2-timeSelectList {
+        margin-left: 5%;
+        font-size: 17px;
+        line-height: 30px;
+        color: #cccccc;
+        height: 30px;
+        border-bottom: 1px solid #cccccc;
+        width: 90%;
+        text-align: center;
+        cursor: pointer;
+    }
+    .section-information .timeSelectBox .timeArea1,
+    .section-information .timeSelectBox .timeArea2{
+        -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+        -ms-user-select: none; 
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    .section-information .timeSelectBox::-webkit-scrollbar {display: none;}
+    .section-information .timeSelectBox .timeArea2::-webkit-scrollbar {display: none;}
+
+    .section-information .agreement{
+        margin-top: 100px;
+        padding-bottom: 0px;
+        display: flex;
+        align-items: center;
+    }
+    .section-information .agreement .input-agreement{
+        height: 15px;
+        width: 15px;
+        -webkit-appearance: none;
+        background: url(../img/myinsurance_agreeCheck_1.svg)  no-repeat;
+        background-size: contain;
+        cursor: pointer;
+        -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+    }
+    .section-information .agreement .input-agreement:checked{
+        height: 15px;
+        width: 15px;
+        background: url(../img/myinsurance_agreeCheck_2.svg)  no-repeat;
+        background-size: contain;
+
+    }
+    .section-information .agreement label{
+        margin-left: 6px;
+        font-size: 13px;
+        margin-bottom: 2px;
+        cursor: pointer;
+        -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+    }
+    .section-information .agreement .a-agreement {
+        margin-left: 6px;
+        font-size: 12px;
+        color: #cccccc;
+    }
+    .section-information .agreement .a-agreement:hover{
+        color: var(--color4);
+    }
+
+}

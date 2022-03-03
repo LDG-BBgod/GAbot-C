@@ -1,0 +1,1685 @@
+@media (min-width: 1000px) {
+    /***************************/
+    /******** COMMON **********/
+    /***************************/
+
+    .section{
+        display: flex;
+        justify-content: center;
+        background: #F6F6F6;
+        min-height: 100vh;
+    }
+    .section .box{
+        margin-top: 150px;
+        margin-bottom: 150px;
+        width: 950px;
+        height: 100%;
+        border: 3px solid var(--color2);
+        border-radius: 40px;
+        box-shadow: 10px 10px var(--color2);
+        background: #fff;
+        position: relative;
+    }
+    .section .inner-compare {
+        position: relative;
+        margin: 0 140px;
+        padding-bottom: 190px;
+        box-sizing: border-box;
+    }
+    .h1-default {
+        font-size: 30px;
+        font-weight: bold;
+        color: #16b95d;
+    }
+
+    /***************************/
+    /******** BUTTON **********/
+    /***************************/
+
+    .button-prev{
+        width: 150px;
+        padding: 0.3em;
+        font-weight: bold;
+        background: #fff;
+        border: 3px solid #cccccc;
+        border-radius: 2em;
+        color: #cccccc;
+        position: absolute;
+        left: 0;
+        bottom: 50px;
+    }
+    .button-next{
+        width: 400px;
+        padding: 0.3em;
+        font-weight: bold;
+        background: #16b95d;
+        border: 3px solid #16b95d;
+        border-radius: 2em;
+        color: #fff;
+        position: absolute;
+        right: 0;
+        bottom: 50px;
+    }
+    .compare-button{
+        font-size: 25px;
+        cursor: pointer;
+    }
+
+    /***************************/
+    /********* RADIO ***********/
+    /***************************/
+    /* 변경할것 : width, ::after(content)*/
+    .radio-default {
+        margin: 0;
+        position: relative;
+        height: 40px;
+        width: 100px;
+        padding: 10px;
+        border: solid 2px #16b95d;
+        border-radius: 30px;
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+    .radio-default::before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translate(0,-50%);
+        height: 16px;
+        width: 16px;
+        background: url(../img/compare_radio1_1.svg) no-repeat;
+    }
+    .radio-default::after{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50px;
+        font-size: 20px;
+        color: #16b95d;
+        transform: translate(0,-50%);
+        
+    }
+    .radio-default:checked {
+        background: #16b95d;
+    }
+    .radio-default:checked::before {
+        background: url(../img/compare_radio1_2.svg) no-repeat;
+    }
+    .radio-default:checked::after {
+        color: #fff;
+    }
+
+    .radio-default2{
+        margin: 0;
+        position: relative;
+        height: 22px;
+        width: 100px;
+        background: url(../img/compare_radio2_1.svg) no-repeat;
+        background-position-y: 50%;
+        background-size: 22px 22px;
+        -webkit-appearance: none;
+        cursor: pointer;
+    }
+    .radio-default2::after{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 40px;
+        transform: translate(0,-50%);
+        color: #cccccc;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    .radio-default2:checked{
+        background: url(../img/compare_radio2_2.svg) no-repeat;
+        background-position-y: 50%;
+    }
+    .radio-default2:checked::after{
+        color: #16b95d;
+    }
+
+    /***************************/
+    /********* INPUT ***********/
+    /***************************/
+    .input-default{
+        height: 2em;
+        padding-left: 5px;
+        border: 2px solid #cccccc;
+        border-radius: 4px;
+    }
+    .input-default2{
+        height: 1.4em;
+        padding-left: 5px;
+        border: none;
+        border-bottom: 2px solid #16b95d;
+    }
+    .input-default::-webkit-input-placeholder { color: #cccccc;}  /*크롬*/
+    .input-default::-ms-input-placeholder { color: #cccccc;}      /*엣지,익스플로러*/
+    .input-default::-moz-input-placeholder { color: #cccccc;}     /*파폭*/
+    .input-default:focus {outline: none;}
+
+    .input-default2::-webkit-input-placeholder {
+        color: #cccccc;
+        font-size: 0.9em;
+        }  /*크롬*/
+    .input-default2::-ms-input-placeholder {
+        color: #cccccc;
+        font-size: 0.9em;
+        }      /*엣지,익스플로러*/
+    .input-default2::-moz-input-placeholder {
+        color: #cccccc;
+        font-size: 0.9em;
+        }     /*파폭*/
+    .input-default2:focus {outline: none;}
+
+
+    /***************************/
+    /********* ERROR ***********/
+    /***************************/
+    .error-default{
+        font-size: 15px;
+        color: #ff0000;
+        position: absolute;
+        bottom: 130px;
+
+    }
+
+    /***************************/
+    /********** NAV  ***********/
+    /***************************/
+    .homeButton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: url(../img/compare_home.svg) 50% 40% no-repeat;
+        background-size: 60%;
+        height: 40px;
+        width: 40px;
+        border: 5px solid #16b95d;
+        border-radius: 40px;
+        box-shadow: 4px 4px 8px rgba(100, 100, 100, 0.3);
+        z-index: 999;
+    }
+    .nav-head{
+
+    }
+    .nav-head .content{
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: 30px;
+        left: 0;
+        right: 0;    
+    }
+    .nav-head .step{
+        font-size: 30px;
+        margin-bottom: 8px;
+        color: #cccccc;
+    }
+    .nav-head .dash{
+        margin: 0 50px;
+    }
+    .nav-bar1{
+        position: absolute;
+        top: 90px;
+        left: -1px;
+        height: 5px;
+        width: calc(100% + 2px);
+        background: #cccccc;
+    }
+    .nav-bar2{
+        position: absolute;
+        top: 90px;
+        left: -1px;
+        height: 5px;
+        background: #16b95d;
+        transition: 0.3s;
+    }
+
+
+    /***************************/
+    /********* START ***********/
+    /***************************/
+    .section-start{
+        
+    }
+    .section-start .inner-start{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .section-start .logo{
+        background: url(../img/compare_logo.svg) no-repeat;
+        background-size: contain;
+        height: 92px;
+        width: 112px;
+        margin: 80px auto 0 auto;
+
+    }
+    .section-start h1{
+        margin-top: 20px;
+        margin-bottom: 30px;
+        font-size: 35px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .section-start p{
+        text-align: center;
+        line-height: 20px;
+        margin-top: 30px;
+    }
+    .section-start .button-start{
+        margin-top: 50px;
+        margin-bottom: 100px;
+        width: 500px;
+        font-size: 25px;
+        padding: 0.5em;
+        font-weight: bold;
+        background: #16b95d;
+        border: none;
+        border-radius: 1.5em;
+        color: #fff;
+    }
+
+
+    /***************************/
+    /********* METHOD **********/
+    /***************************/
+    .section-method{
+
+    }
+
+    .section-method .inner-compare{
+
+    }
+    .section-method h1{
+        margin-top: 150px;
+    }
+    .section-method h3{
+        margin-top: 20px;
+        font-size: 14px;
+        color: #cccccc;
+    }
+    .section-method .select-radio{
+        margin-top: 20px;
+    }
+    .section-method .select-radio .radio-method{
+        transform: scale(1);
+        width: 115px;
+        margin-right: 10px;
+    }
+    .section-method .select-radio .radio-method:nth-child(1)::after{
+        content: "메일";
+    }
+    .section-method .select-radio .radio-method:nth-child(2):after{
+        content: "카톡";
+    }
+    .section-method .select-radio .radio-method:nth-child(3)::after{
+        content: "문자";
+    }
+    .section-method .input-contact{
+        margin-top: 50px;
+        font-size: 20px;
+        width: 100%;
+    }
+    .section-method .error-method{
+
+    } 
+
+    /***************************/
+    /********* CONCERN *********/
+    /***************************/
+    .section-concern{
+
+    }
+    .section-concern .inner-compare{
+
+    }
+    .section-concern h1 {
+        margin-top: 150px;
+    }
+    .section-concern ul{
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+    .section-concern ul li{
+        margin-top: 15px;
+    }
+    .section-concern ul li:nth-child(1) .radio-concern{
+        width: 160px;
+    }
+    .section-concern ul li:nth-child(1) .radio-concern::after{
+        content: "의료 실비";
+    }
+    .section-concern ul li:nth-child(2) .radio-concern{
+        width: 180px;
+    }
+    .section-concern ul li:nth-child(2) .radio-concern::after{
+        content: "운전자 보험";
+    }
+    .section-concern ul li:nth-child(3) .radio-concern{
+        width: 160px;
+    }
+    .section-concern ul li:nth-child(3) .radio-concern::after{
+        content: "치매 간병";
+    }
+    .section-concern ul li:nth-child(4) .radio-concern{
+        width: 220px;
+    }
+    .section-concern ul li:nth-child(4) .radio-concern::after{
+        content: "입원 수술병원비";
+    }
+    .section-concern ul li:nth-child(5) .radio-concern{
+        width: 170px;
+    }
+    .section-concern ul li:nth-child(5) .radio-concern::after{
+        content: "3대 진단비";
+    }
+    .section-concern ul li:nth-child(6) .radio-concern{
+        width: 240px;
+    }
+    .section-concern ul li:nth-child(6) .radio-concern::after{
+        content: "3대 질병 건강보험";
+    }
+    .section-concern ul li:nth-child(7) .radio-concern{
+        width: 180px;
+    }
+    .section-concern ul li:nth-child(7) .radio-concern::after{
+        content: "유병자 간편";
+    }
+    .section-concern ul li:nth-child(8) .radio-concern{
+        width: 135px;
+    }
+    .section-concern ul li:nth-child(8) .radio-concern::after{
+        content: "암보험";
+    }
+    .section-concern ul li:nth-child(9) .radio-concern{
+        width: 200px;
+    }
+    .section-concern ul li:nth-child(9) .radio-concern::after{
+        content: "질병 후유장해";
+    }
+    .section-concern ul li:nth-child(10) .radio-concern{
+        width: 150px;
+    }
+    .section-concern ul li:nth-child(10) .radio-concern::after{
+        content: "치아보험";
+    }
+    .section-concern ul li:nth-child(11) .radio-concern{
+        width: 225px;
+    }
+    .section-concern ul li:nth-child(11) .radio-concern::after{
+        content: "태아 어린이 보험";
+    }
+    .section-concern ul li:nth-child(12) .radio-concern{
+        width: 360px;
+    }
+    .section-concern ul li:nth-child(12) .radio-concern::after{
+        content: "일단 설계사의 추천을 받을래요";
+    }
+    .section-concern .error-concern{
+
+    }
+
+    /***************************/
+    /********** PRICE **********/
+    /***************************/
+    .section-price{
+        height: 100%;
+    }
+    .section-price .inner-compare{
+
+    }
+    .section-price h1{
+        margin-top: 150px;
+    }
+    .section-price .input-price{
+        width: 100%;
+        margin-top: 100px;
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: #3F3D56;
+    }
+    .section-price .input-price:focus {outline: none;}
+    .section-price .multi-range-slider{
+        margin-top: 35px;
+        position: relative;
+        width: 100%;
+    }    
+    .section-price .slider{
+        position: relative;
+        z-index: 1;
+        height: 15px;
+        margin: 0 15px;
+    }
+    .section-price .slider > .track{
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border: 1px solid #cccccc;
+        border-radius: 7.5px;
+        background: #fff;
+        box-sizing: border-box;
+    }
+    .section-price .slider > .range{
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        background: #16b95d;
+        box-sizing: border-box;
+    }
+    .section-price .slider > .thumb{
+        position: absolute;
+        z-index: 3;
+        width: 30px;
+        height: 30px;
+        background: #16b95d;
+        border: 1px solid #cccccc;
+        border-radius: 50%;
+        box-sizing: border-box;
+    }
+    .section-price .slider > .thumb-left{
+        transform: translate(-50%, -7.5px);
+    }
+    .section-price .slider > .thumb-right{
+        transform: translate(50%, -7.5px);
+    }
+    .section-price .slider-price{
+        position: absolute;
+        pointer-events: none;
+        -webkit-appearance: none;
+        z-index: 2;
+        height: 10px;
+        width: 100%;
+        opacity: 0;
+    }
+    .section-price .slider-price::-webkit-slider-thumb{
+        pointer-events: all;
+        -webkit-appearance: none;
+        height: 30px;
+        width: 30px;
+        border-radius: 0;
+        border: 0 none;
+        background: red;
+        cursor: pointer;
+    }
+
+    /***************************/
+    /******** HOSPITAL *********/
+    /***************************/
+    .section-hospital{
+        
+    }
+    .section-hospital .inner-compare{
+
+    }
+    .section-hospital .h1-hospital{
+        margin-top: 150px;
+    }
+    .section-hospital .radio-hospital{
+        width: 130px;
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+    .section-hospital .radio-hospital:nth-child(2)::after{
+        content: "있어요";
+    }
+
+    .section-hospital .radio-hospital:nth-child(3)::after{
+        content: "없어요";
+    }
+
+    .section-hospital .section-hospital-toggle .h2-hospital{
+        margin-top: 50px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment {
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(2) {
+        width: 110px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(2)::after {
+        content: "치료";
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(3) {
+        width: 110px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(3)::after {
+        content: "입원";
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(4) {
+        width: 110px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(4)::after {
+        content: "수술";
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(5) {
+        width: 110px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(5)::after {
+        content: "진료";
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(6) {
+        width: 130px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(6)::after {
+        content: "약처방";
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(7) {
+        width: 190px;
+        margin-top: 10px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(7)::after {
+        content: "잘 모르겠어요";
+    }
+    .section-hospital .section-hospital-toggle .h3-hospital{
+        margin-top: 50px;
+    }
+    .section-hospital .section-hospital-toggle .input-hospitalDisease{
+        margin-top: 30px;
+        font-size: 20px;
+        width: 100%;
+    }
+    .section-hospital .h4-hospital{
+        margin-top: 50px;
+    }
+    .section-hospital .input-disease{
+        margin-top: 30px;
+        font-size: 20px;
+        width: 100%;
+    }
+    /***************************/
+    /****** FAMILY DISEASE ******/
+    /***************************/
+    .section-familyDisease{
+
+    }
+    .section-familyDisease .inner-compare{
+
+    }
+    .section-familyDisease h1{
+        margin-top: 150px;
+    }
+    .section-familyDisease .radio-familyDisease{
+        display: block;
+        height: 46px;
+        padding: 10px 0;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(2){
+        margin-top: 40px;
+        width: 80px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(2)::after{
+        content: "암";
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(3){
+        width: 80px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(3)::after{
+        content: "뇌";
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(4){
+        width: 100px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(4)::after{
+        content: "심장";
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(5){
+        width: 120px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(5)::after{
+        content: "당뇨병";
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(6){
+        width: 120px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(6)::after{
+        content: "고혈압";
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(7){
+        width: 140px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(7)::after{
+        content: "고지혈증";
+    }
+    .section-familyDisease .section-etc {
+        display: flex;
+        align-items: center;
+    }
+    .section-familyDisease .section-etc .radio-familyDisease{
+        width: 90px;
+    }
+    .section-familyDisease .section-etc .radio-familyDisease::after{
+        content: "기타";
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(9){
+        width: 190px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(9)::after{
+        content: "잘 모르겠어요";
+    }
+    .section-familyDisease .section-familyDisease-toggle{
+        width: 600px;
+    }
+    .section-familyDisease .section-familyDisease-toggle span{
+        font-size: 22px;
+        font-weight: bold;
+        color: #16b95d;
+        margin-right: 5px;
+    }
+    .section-familyDisease .section-familyDisease-toggle .input-familyDiseaseEtc{
+        font-size: 20px;
+        color: #16b95d;
+        margin-right: 5px;
+        width: 90%
+    }
+
+
+    /***************************/
+    /********** BIRTH **********/
+    /***************************/
+    .section-birth{
+
+    }
+    .section-birth .inner-compare{
+
+    }
+    .section-birth .h1-birth{
+        margin-top: 150px;
+    }
+    .section-birth .input-birth{
+        margin-top: 30px;
+        font-size: 20px;
+        width: 100%;
+    }
+    .section-birth .h2-birth{
+        margin-top: 50px;
+    }
+    .section-birth .radio-gender{
+        margin-top: 30px;
+        margin-right: 20px;
+        width: 110px;
+    }
+    .section-birth .radio-gender:nth-child(4)::after{
+        content: "남자";
+    }
+    .section-birth .radio-gender:nth-child(5)::after{
+        content: "여자";
+    }
+    .section-birth .h3-birth{
+        margin-top: 50px;
+    }
+    .section-birth .input-job{
+        margin-top: 30px;
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .section-birth .h4-birth{
+        margin-top: 50px;
+    }
+    .selectBoxPosition{
+        position: relative;
+        margin-top: 50px;
+    }
+    .selectBox {
+        position: absolute;
+        top: 0;
+        margin: auto;
+        height: 40px;
+        width: 300px;
+        border: 2px solid #16b95d;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: 0.3s;
+        background: #fff;
+        z-index: 2;
+    }
+    .on {
+        height: 300px;
+        overflow: scroll;
+        
+    }
+    .area1{
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 40px;
+        font-size: 20px;
+        text-align: center;
+        color: #16b95d;
+        line-height: 40px;
+        background: #fff;
+        border-bottom: 2px solid #16b95d;
+        cursor: pointer;
+    }
+    .area2{
+        overflow-y: scroll;
+    }
+    .area2-selectList {
+        margin-left: 5%;
+        font-size: 20px;
+        line-height: 35px;
+        color: #cccccc;
+        height: 35px;
+        border-bottom: 1px solid #cccccc;
+        width: 90%;
+        text-align: center;
+        cursor: pointer;
+    }
+    .selectBox::-webkit-scrollbar {display: none;}
+    .area2::-webkit-scrollbar {display: none;}
+    .area1,
+    .area2{
+        -ms-user-select: none; 
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    .section-birth .agreement{
+        margin-top: 150px;
+        display: flex;
+        align-items: center;
+    }
+
+
+    .section-birth .agreement .input-agreement{
+        height: 22px;
+        width: 22px;
+        -webkit-appearance: none;
+        background: url(../img/compare_agreeCheck_1.svg)  no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
+    .section-birth .agreement .input-agreement:checked{
+        height: 22px;
+        width: 22px;
+        background: url(../img/compare_agreeCheck_2.svg)  no-repeat;
+        background-size: contain;
+
+    }
+
+    .section-birth .agreement label{
+        margin-left: 8px;
+        font-size: 17px;
+        margin-bottom: 3px;
+        cursor: pointer;
+    }
+    .section-birth .agreement .a-agreement {
+        margin-left: 8px;
+        font-size: 15px;
+        color: #cccccc;
+    }
+    .section-birth .agreement .a-agreement:hover{
+        color: #16b95d;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 999px) {
+    /***************************/
+    /******** COMMON **********/
+    /***************************/
+
+    .section{
+        background: #F6F6F6;
+        min-height: 100vh;
+    }
+    .section .box{
+
+    }
+    .section .inner-compare {
+        position: relative;
+        margin: 0 25px;
+        padding-bottom: 150px;
+        box-sizing: border-box;
+    }
+    .h1-default {
+        font-size: 15px;
+        font-weight: bold;
+        color: #16b95d;
+    }
+
+    /***************************/
+    /******** BUTTON **********/
+    /***************************/
+
+    .button-prev{
+        width: 20vw;
+        padding: 0.4em;
+        font-weight: bold;
+        background: #fff;
+        border: 3px solid #cccccc;
+        border-radius: 2em;
+        color: #cccccc;
+        position: absolute;
+        left: 0;
+        bottom: 50px;
+    }
+    .button-next{
+        width: 40vw;
+        padding: 0.4em;
+        font-weight: bold;
+        background: #16b95d;
+        border: 3px solid #16b95d;
+        border-radius: 2em;
+        color: #fff;
+        position: absolute;
+        right: 0;
+        bottom: 50px;
+    }
+    .compare-button{
+        font-size: 15px;
+        cursor: pointer;
+        -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+    }
+
+    /***************************/
+    /********* RADIO ***********/
+    /***************************/
+    /* 변경할것 : width, ::after(content)*/
+    .radio-default {
+        margin: 0;
+        position: relative;
+        height: 30px;
+        width: 60px;
+        padding: 10px;
+        background: #fff;
+        border: solid 2px #16b95d;
+        border-radius: 30px;
+        -webkit-appearance: none;
+        cursor: pointer;
+        -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+    }
+    .radio-default::before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translate(0,-50%);
+        height: 12px;
+        width: 12px;
+        background: url(../img/compare_radio1_1.svg) no-repeat;
+        background-size: contain;
+    }
+    .radio-default::after{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 30px;
+        font-size: 14px;
+        color: #16b95d;
+        transform: translate(0,-50%);
+        
+    }
+    .radio-default:checked {
+        background: #16b95d;
+    }
+    .radio-default:checked::before {
+        background: url(../img/compare_radio1_2.svg) no-repeat;
+        background-size: contain;
+        height: 12px;
+        width: 12px;
+    }
+    .radio-default:checked::after {
+        color: #fff;
+    }
+
+    .radio-default2{
+        margin: 0;
+        position: relative;
+        height: 15px;
+        width: 100px;
+        background: url(../img/compare_radio2_1.svg) no-repeat;
+        background-position-y: 50%;
+        background-size: 15px 15px;
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+        cursor: pointer;
+    }
+    .radio-default2::after{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 30px;
+        transform: translate(0,-50%);
+        color: #cccccc;
+        font-size: 13px;
+        cursor: pointer;
+    }
+    .radio-default2:checked{
+        background: url(../img/compare_radio2_2.svg) no-repeat;
+        background-size: 15px 15px;
+        background-position-y: 50%;
+    }
+    .radio-default2:checked::after{
+        color: #16b95d;
+    }
+
+    /***************************/
+    /********* INPUT ***********/
+    /***************************/
+    .input-default{
+        height: 2.5em;
+        padding-left: 5px;
+        border: 2px solid #cccccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .input-default2{
+        background: #F6F6F6;
+        height: 1.4em;
+        padding-left: 5px;
+        border: none;
+        border-bottom: 2px solid #16b95d;
+        box-sizing: border-box;
+    }
+    .input-default::-webkit-input-placeholder { color: #cccccc;}  /*크롬*/
+    .input-default::-ms-input-placeholder { color: #cccccc;}      /*엣지,익스플로러*/
+    .input-default::-moz-input-placeholder { color: #cccccc;}     /*파폭*/
+    .input-default:focus {outline: none;}
+
+    .input-default2::-webkit-input-placeholder {
+        color: #cccccc;
+        font-size: 0.9em;
+        }  /*크롬*/
+    .input-default2::-ms-input-placeholder {
+        color: #cccccc;
+        font-size: 0.9em;
+        }      /*엣지,익스플로러*/
+    .input-default2::-moz-input-placeholder {
+        color: #cccccc;
+        font-size: 0.9em;
+        }     /*파폭*/
+    .input-default2:focus {outline: none;}
+
+    /***************************/
+    /********* ERROR ***********/
+    /***************************/
+    .error-default{
+        font-size: 10px;
+        color: #ff0000;
+        position: absolute;
+        bottom: 100px;
+
+    }
+
+    /***************************/
+    /********** NAV  ***********/
+    /***************************/
+    .homeButton{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 12px;
+        right: 15px;
+        background: url(../img/compare_home.svg) 50% 40% no-repeat;
+        background-size: 50%;
+        height: 40px;
+        width: 40px;
+        z-index: 999;
+    }
+    .nav-head{
+
+    }
+    .nav-head .content{
+        position: absolute;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        top: 20px;
+        left: 0;
+        right: 0;    
+    }
+    .nav-head .step:first-child{
+        margin-left: 30px;
+    }
+    .nav-head .step{
+        font-size: 15px;
+        margin-bottom: 2px;
+        color: #cccccc;
+    }
+    .nav-head .dash{
+        margin: 0 10px;
+    }
+    .nav-head .dash .dash-size{
+        width: 9px;
+        height: 20px;
+    }
+    .nav-bar1{
+        position: absolute;
+        top: 60px;
+        left: 0;
+        height: 4px;
+        width: 100%;
+        background: #cccccc;
+    }
+    .nav-bar2{
+        position: absolute;
+        top: 60px;
+        left: 0x;
+        height: 4px;
+        background: #16b95d;
+        transition: 0.3s;
+    }
+
+    /***************************/
+    /********* START ***********/
+    /***************************/
+    .section-start{
+        
+    }
+    .section-start .inner-start{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    .section-start .logo{
+        background: url(../img/compare_logo.svg) no-repeat;
+        background-size: contain;
+        height: 46px;
+        width: 56px;
+        margin: 25vh auto 0 auto;
+
+    }
+    .section-start h1{
+        margin-top: 20px;
+        margin-bottom: 30px;
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: bold;
+        text-align: center;
+    }
+    .section-start p{
+        margin-top: 30px;
+        font-size: 12px;
+        line-height: 15px;
+        text-align: center;
+    }
+    .section-start .button-start{
+        margin-top: 50px;
+        margin-bottom: 100px;
+        max-width: 300px;
+        width: 80%;
+        height: 50px;
+        font-size: 18px;
+        padding: 0.5em;
+        font-weight: bold;
+        background: #16b95d;
+        border: none;
+        border-radius: 3em;
+        color: #fff;
+    }
+    /***************************/
+    /********* METHOD **********/
+    /***************************/
+    .section-method{
+
+    }
+    .section-method .inner-compare{
+
+    }
+    .section-method h1{
+        padding-top: 100px;
+    }
+    .section-method h3{
+        width: 280px;
+        word-break: keep-all;
+        margin-top: 5px;
+        font-size: 10px;
+        color: #b1b1b1;
+        line-height: 12px;
+    }
+    .section-method .select-radio{
+        margin-top: 20px;
+    }
+    .section-method .select-radio .radio-method{
+        transform: scale(1);
+        width: 80px;
+        margin-right: 10px;
+    }
+    .section-method .select-radio .radio-method:nth-child(1)::after{
+        content: "메일";
+    }
+    .section-method .select-radio .radio-method:nth-child(2):after{
+        content: "카톡";
+    }
+    .section-method .select-radio .radio-method:nth-child(3)::after{
+        content: "문자";
+    }
+    .section-method .input-contact{
+        margin-top: 20px;
+        font-size: 15px;
+        width: 100%;
+    }
+    .section-method .error-method{
+
+    } 
+
+    /***************************/
+    /********* CONCERN *********/
+    /***************************/
+    .section-concern{
+
+    }
+    .section-concern .inner-compare{
+
+    }
+    .section-concern h1 {
+        padding-top: 100px;
+    }
+    .section-concern ul{
+        margin-top: 5px;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        
+    }
+    .section-concern ul li{
+        margin-top: 15px;
+    }
+    .section-concern ul li:nth-child(1) .radio-concern{
+        width: 115px;
+    }
+    .section-concern ul li:nth-child(1) .radio-concern::after{
+        content: "의료 실비";
+    }
+    .section-concern ul li:nth-child(2) .radio-concern{
+        width: 125px;
+    }
+    .section-concern ul li:nth-child(2) .radio-concern::after{
+        content: "운전자 보험";
+    }
+    .section-concern ul li:nth-child(3) .radio-concern{
+        width: 110px;
+    }
+    .section-concern ul li:nth-child(3) .radio-concern::after{
+        content: "치매 간병";
+    }
+    .section-concern ul li:nth-child(4) .radio-concern{
+        width: 155px;
+    }
+    .section-concern ul li:nth-child(4) .radio-concern::after{
+        content: "입원 수술병원비";
+    }
+    .section-concern ul li:nth-child(5) .radio-concern{
+        width: 120px;
+    }
+    .section-concern ul li:nth-child(5) .radio-concern::after{
+        content: "3대 진단비";
+    }
+    .section-concern ul li:nth-child(6) .radio-concern{
+        width: 165px;
+    }
+    .section-concern ul li:nth-child(6) .radio-concern::after{
+        content: "3대 질병 건강보험";
+    }
+    .section-concern ul li:nth-child(7) .radio-concern{
+        width: 125px;
+    }
+    .section-concern ul li:nth-child(7) .radio-concern::after{
+        content: "유병자 간편";
+    }
+    .section-concern ul li:nth-child(8) .radio-concern{
+        width: 90px;
+    }
+    .section-concern ul li:nth-child(8) .radio-concern::after{
+        content: "암보험";
+    }
+    .section-concern ul li:nth-child(9) .radio-concern{
+        width: 140px;
+    }
+    .section-concern ul li:nth-child(9) .radio-concern::after{
+        content: "질병 후유장해";
+    }
+    .section-concern ul li:nth-child(10) .radio-concern{
+        width: 110px;
+    }
+    .section-concern ul li:nth-child(10) .radio-concern::after{
+        content: "치아보험";
+    }
+    .section-concern ul li:nth-child(11) .radio-concern{
+        width: 160px;
+    }
+    .section-concern ul li:nth-child(11) .radio-concern::after{
+        content: "태아 어린이 보험";
+    }
+    .section-concern ul li:nth-child(12) .radio-concern{
+        width: 245px;
+    }
+    .section-concern ul li:nth-child(12) .radio-concern::after{
+        content: "일단 설계사의 추천을 받을래요";
+    }
+    .section-concern .error-concern{
+
+    }
+
+    /***************************/
+    /********** PRICE **********/
+    /***************************/
+
+
+    .section-price{
+
+    }
+    .section-price .inner-compare{
+
+    }
+    .section-price h1{
+        padding-top: 100px;
+    }    
+    .section-price .input-price{
+        background: none;
+        width: 100%;
+        margin-top: 100px;
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: #3F3D56;
+    }
+    .section-price .input-price:focus {outline: none;}
+    .section-price .multi-range-slider{
+        margin-top: 35px;
+        position: relative;
+        width: 100%;
+    }    
+    .section-price .slider{
+        position: relative;
+        z-index: 1;
+        height: 15px;
+        margin: 0 15px;
+    }
+    .section-price .slider > .track{
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border: 1px solid #cccccc;
+        border-radius: 7.5px;
+        background: #fff;
+        box-sizing: border-box;
+    }
+    .section-price .slider > .range{
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        border: 1px solid #cccccc;
+        border-radius: 5px;
+        background: #16b95d;
+        box-sizing: border-box;
+    }
+    .section-price .slider > .thumb{
+        position: absolute;
+        z-index: 3;
+        width: 30px;
+        height: 30px;
+        background: #16b95d;
+        border: 1px solid #cccccc;
+        border-radius: 50%;
+        box-sizing: border-box;
+    }
+    .section-price .slider > .thumb-left{
+        transform: translate(-50%, -7.5px);
+    }
+    .section-price .slider > .thumb-right{
+        transform: translate(50%, -7.5px);
+    }
+    .section-price .slider-price{
+        position: absolute;
+        pointer-events: none;
+        -webkit-appearance: none;
+        z-index: 2;
+        height: 10px;
+        width: 100%;
+        opacity: 0;
+    }
+    .section-price .slider-price::-webkit-slider-thumb{
+        pointer-events: all;
+        -webkit-appearance: none;
+        height: 30px;
+        width: 30px;
+        border-radius: 0;
+        border: 0 none;
+        background: red;
+        cursor: pointer;
+    }
+
+    /***************************/
+    /******** HOSPITAL *********/
+    /***************************/
+    .section-hospital{
+        
+    }
+    .section-hospital .inner-compare{
+
+    }
+    .section-hospital .h1-hospital{
+        padding-top: 100px;
+    }
+    .section-hospital .radio-hospital{
+        width: 90px;
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+    .section-hospital .radio-hospital:nth-child(2)::after{
+        content: "있어요";
+    }
+    .section-hospital .radio-hospital:nth-child(3)::after{
+        content: "없어요";
+    }
+    .section-hospital .section-hospital-toggle .h2-hospital{
+        margin-top: 50px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment {
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(2) {
+        width: 75px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(2)::after {
+        content: "치료";
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(3) {
+        width: 75px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(3)::after {
+        content: "입원";
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(4) {
+        width: 75px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(4)::after {
+        content: "수술";
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(5) {
+        width: 75px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(5)::after {
+        content: "진료";
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(6) {
+        width: 90px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(6)::after {
+        content: "약처방";
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(7) {
+        width: 140px;
+    }
+    .section-hospital .section-hospital-toggle .radio-hospitalTreatment:nth-child(7)::after {
+        content: "잘 모르겠어요";
+    }
+    .section-hospital .section-hospital-toggle .h3-hospital{
+        margin-top: 50px;
+    }
+    .section-hospital .section-hospital-toggle .input-hospitalDisease{
+        margin-top: 20px;
+        font-size: 15px;
+        width: 100%;
+    }
+    .section-hospital .h4-hospital{
+        margin-top: 50px;
+    }
+    .section-hospital .input-disease{
+        margin-top: 20px;
+        font-size: 15px;
+        width: 100%;
+    }
+
+    /***************************/
+    /****** FAMILY DISEASE ******/
+    /***************************/
+    .section-familyDisease{
+
+    }
+    .section-familyDisease .inner-compare{
+
+    }
+    .section-familyDisease h1{
+        padding-top: 100px;
+    }
+    .section-familyDisease .radio-familyDisease{
+        display: block;
+        height: 46px;
+        padding: 10px 0;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(2){
+        margin-top: 10px;
+        width: 80px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(2)::after{
+        content: "암";
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(3){
+        width: 80px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(3)::after{
+        content: "뇌";
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(4){
+        width: 100px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(4)::after{
+        content: "심장";
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(5){
+        width: 120px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(5)::after{
+        content: "당뇨병";
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(6){
+        width: 120px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(6)::after{
+        content: "고혈압";
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(7){
+        width: 140px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(7)::after{
+        content: "고지혈증";
+    }
+    .section-familyDisease .section-etc {
+        display: flex;
+        align-items: center;
+    }
+    .section-familyDisease .section-etc .radio-familyDisease{
+        width: 70px;
+    }
+    .section-familyDisease .section-etc .radio-familyDisease::after{
+        content: "기타";
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(9){
+        width: 190px;
+    }
+    .section-familyDisease .radio-familyDisease:nth-child(9)::after{
+        content: "잘 모르겠어요";
+    }
+    .section-familyDisease .section-familyDisease-toggle{
+        width: calc(100% - 70px);
+    }
+    .section-familyDisease .section-familyDisease-toggle span{
+        font-size: 15px;
+        font-weight: bold;
+        color: #16b95d;
+        margin-right: 5px;
+    }
+    .section-familyDisease .section-familyDisease-toggle .input-familyDiseaseEtc{
+        font-size: 15px;
+        color: #16b95d;
+        width: calc(100% - 40px);
+    }
+
+
+    /***************************/
+    /********** BIRTH **********/
+    /***************************/
+    .section-birth{
+
+    }
+    .section-birth .inner-compare{
+
+    }
+    .section-birth .h1-birth{
+        padding-top: 100px;
+    }
+    .section-birth .input-birth{
+        margin-top: 20px;
+        font-size: 15px;
+        width: 100%;
+    }
+    .section-birth .h2-birth{
+        margin-top: 50px;
+    }
+    .section-birth .radio-gender{
+        margin-top: 20px;
+        margin-right: 20px;
+        width: 80px;
+    }
+    .section-birth .radio-gender:nth-child(4)::after{
+        content: "남자";
+    }
+    .section-birth .radio-gender:nth-child(5)::after{
+        content: "여자";
+    }
+    .section-birth .h3-birth{
+        margin-top: 50px;
+    }
+    .section-birth .input-job{
+        margin-top: 20px;
+        font-size: 15px;
+        width: 100%;
+    }
+
+    .section-birth .h4-birth{
+        margin-top: 50px;
+    }
+    .section-birth .selectBoxPosition{
+        position: relative;
+        margin-top: 20px;
+    }
+    .section-birth .selectBox {
+        position: absolute;
+        top: 0;
+        margin: auto;
+        height: 40px;
+        width: 100%;
+        max-width: 400px;
+        border: 2px solid #16b95d;
+        border-radius: 25px;
+        overflow: hidden;
+        transition: 0.3s;
+        background: #fff;
+        z-index: 2;
+    }
+    .section-birth .on {
+        height: 220px;
+        overflow: scroll;
+        
+    }
+    .section-birth .area1{
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 40px;
+        font-size: 17px;
+        text-align: center;
+        color: #16b95d;
+        line-height: 40px;
+        background: #fff;
+        border-bottom: 2px solid #16b95d;
+        cursor: pointer;
+    }
+    .section-birth .area2{
+        overflow-y: scroll;
+    }
+    .section-birth .area2-selectList {
+        margin-left: 5%;
+        font-size: 17px;
+        line-height: 30px;
+        color: #cccccc;
+        height: 30px;
+        border-bottom: 1px solid #cccccc;
+        width: 90%;
+        text-align: center;
+        cursor: pointer;
+    }
+    .section-birth .selectBox::-webkit-scrollbar {display: none;}
+    .section-birth .area2::-webkit-scrollbar {display: none;}
+    .section-birth .area1,
+    .section-birth .area2{
+        -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+        -ms-user-select: none; 
+        -moz-user-select: -moz-none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    .section-birth .agreement{
+        margin-top: 100px;
+        display: flex;
+        align-items: center;
+    }
+
+    .section-birth .agreement .input-agreement{
+        height: 15px;
+        width: 15px;
+        -webkit-appearance: none;
+        background: url(../img/compare_agreeCheck_1.svg)  no-repeat;
+        background-size: contain;
+        cursor: pointer;
+    }
+    .section-birth .agreement .input-agreement:checked{
+        height: 15px;
+        width: 15px;
+        background: url(../img/compare_agreeCheck_2.svg)  no-repeat;
+        background-size: contain;
+
+    }
+
+    .section-birth .agreement label{
+        margin-left: 6px;
+        font-size: 13px;
+        margin-bottom: 2px;
+        cursor: pointer;
+    }
+    .section-birth .agreement .a-agreement {
+        margin-left: 6px;
+        font-size: 12px;
+        color: #cccccc;
+    }
+    .section-birth .agreement .a-agreement:hover{
+        color: #16b95d;
+    }
+}

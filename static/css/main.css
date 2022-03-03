@@ -1,0 +1,116 @@
+/* VARIABLE */
+:root {
+    /*1: 배경색  2:중간글자색  3:검은색글자 4:노란색  5:회색글자 6:버튼색깔*/
+    /* --color1: linear-gradient(45deg, #2fd1dc, #0866cb);
+    --color2: #16B95D;
+    --color3: #000;
+    --color4: #F1D000;
+    --color5: rgba(0, 0, 0, 0.5); */
+    
+    /* --color1: linear-gradient(45deg, #0099ff, #0066ff);
+    --color2: #0066ff;
+    --color3: #000;
+    --color4: #F1D000;
+    --color5: rgba(0, 0, 0, 0.5);
+    --color6: #0066ff; */
+    /* --color1: linear-gradient(45deg, #54C87B, #80E0C9); */
+
+    --color1: #5B8DEF;
+    --color2: #16B95D;
+    --color3: #000;
+    --color4: #F1D000;
+    --color5: rgba(0, 0, 0, 0.5);
+    --color6: #EBBC03;
+}
+/* COMMON */
+.container {
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+}
+a {
+    text-decoration: none;
+}
+.align-item{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+/* FLOAT CLEARFIX */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+
+/* SECTION INNER */
+.section {
+    position: relative;
+}
+.inner{
+    max-width: 900px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position:  relative;
+}
+.inner-center{
+    text-align: center;
+}
+/* BUTTON */
+.hover-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color6);
+    color: #fff;
+    border: none;
+    border-radius: 2em;
+    position: relative;
+    height : auto;
+    width: auto;
+    font-size: 1em;
+    font-weight: bold;    
+    padding: 0.2em 0.8em;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
+    -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+}
+
+.hover-button-reverse {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: var(--color6);
+    border: none;
+    border-radius: 2em;
+    position: relative;
+    height : auto;
+    width: auto;
+    font-size: 1em;
+    font-weight: bold;    
+    padding: 0.2em 0.8em;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
+    -webkit-tap-highlight-color : rgba(0, 0, 0, 0);
+}
+
+/*TOGGLE*/
+@media (max-width: 820px) {
+    .toggle {
+        display: none;
+    }
+    .toggle.on {
+        display: block;
+    }
+}

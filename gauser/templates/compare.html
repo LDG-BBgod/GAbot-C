@@ -1,0 +1,222 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/compare.css' %}">
+<script defer src="{% static 'js/compare.js' %}"></script>
+
+{% endblock %}
+
+{% block contents %}
+<section class="section">
+    <div class="box">
+        <a class="homeButton" href="/"></a>
+        <div class="nav-head" style="display: none;">
+            <div class="content">
+                <div class="step step1">수신처</div>
+                <div class="dash">
+                    <svg class="dash-size" id="right-chevron" xmlns="http://www.w3.org/2000/svg" width="19.263" height="44.293" viewBox="0 0 19.263 44.293">
+                        <g id="그룹_24" data-name="그룹 24" transform="translate(0 0)">
+                          <path class="dash1" id="패스_36" data-name="패스 36" d="M56.489,43.49a1.177,1.177,0,0,0,1,.8,1.015,1.015,0,0,0,.747-.4L75.007,23.733a2.833,2.833,0,0,0,0-3.209L58.233.4C57.672-.271,56.9-.07,56.489.8a2.9,2.9,0,0,0,.249,2.808L72.183,22.161,56.738,40.716A2.84,2.84,0,0,0,56.489,43.49Z" transform="translate(-56.242 0)" fill="#cccccc"/>
+                        </g>
+                    </svg>
+                </div>
+                <div class="step step2">이력 사항</div>
+                <div class="dash">
+                    <svg class="dash-size" id="right-chevron" xmlns="http://www.w3.org/2000/svg" width="19.263" height="44.293" viewBox="0 0 19.263 44.293">
+                        <g id="그룹_24" data-name="그룹 24" transform="translate(0 0)">
+                          <path class="dash2" id="패스_36" data-name="패스 36" d="M56.489,43.49a1.177,1.177,0,0,0,1,.8,1.015,1.015,0,0,0,.747-.4L75.007,23.733a2.833,2.833,0,0,0,0-3.209L58.233.4C57.672-.271,56.9-.07,56.489.8a2.9,2.9,0,0,0,.249,2.808L72.183,22.161,56.738,40.716A2.84,2.84,0,0,0,56.489,43.49Z" transform="translate(-56.242 0)" fill="#cccccc"/>
+                        </g>
+                    </svg>                      
+                </div>
+                <div class="step step3">기본 정보</div>
+            </div>            
+        </div>
+        <div class="nav-bar1" style="display: none;"></div>
+        <div class="nav-bar2" style="display: none;"></div>
+        <div class="section-start">
+            <div class="inner-start">
+                <div class="logo"></div>
+                <h1>GAbot이 당신의 보험 설계를<br>도와드리겠습니다</h1>
+                <p>개인을 특정할 수 없는 정보만 설계사들한테 갑니다</p>
+                <p>고객님의 전화번호, 이름을 절대 설계사들이 알 수 없습니다</p>
+                <p>고객님의 상황에 맞는 고객님만의 fit한 상품을 설계합니다</p> 
+                <button class="compare-button button-start" onclick="nextButton(0,1); CountButton('startCount')">비교견적 시작하기</button>    
+            </div>          
+        </div>
+        <div class="section-method" style="display: none;">
+            <div class="inner-compare">
+                <h1 class="h1-default">1. 비교 견적 받으실 수단을 알려주세요</h1>
+                <h3>오직 비교 견적서만 전달 되며 이후 광고 혹은 영업 연락은 절대 가지 않습니다</h3>
+                <div class="select-radio">
+                    <input class="radio-default radio-method section-input-method" name="section-input-method" id="메일" type="radio" value="메일" onclick="radioMethod()">
+                    <input class="radio-default radio-method section-input-method" name="section-input-method" id="카톡" type="radio" value="카톡" onclick="radioMethod()">   
+                    <input class="radio-default radio-method section-input-method" name="section-input-method" id="문자" type="radio" value="문자" onclick="radioMethod()">                  
+                </div>
+                <input class="input-default input-contact section-input-contact" name="section-input-contact" id="연락처" type="text" placeholder="연락수단을 먼저 선택해 주세요">
+                <div class="error-default error-method"></div>               
+                <button class="compare-button button-prev" onclick="prevButton(1, 0)">이 전</button>
+                <button class="compare-button button-next" onclick="nextButton(1, 2); CountButton('methodCount')">다 음</button>
+            </div>            
+        </div>
+        <div class="section-concern" style="display: none;">
+            <div class="inner-compare">
+                <h1 class="h1-default">2. 관심있는 보험을 알려주세요</h1>
+                <ul>
+                    <li><input class="radio-default radio-concern section-input-concern" name="section-input-concern" id="의료실비" type="checkbox" value="의료실비"></li>
+                    <li><input class="radio-default radio-concern section-input-concern" name="section-input-concern" id="운전자 보험" type="checkbox" value="운전자 보험"></li>
+                    <li><input class="radio-default radio-concern section-input-concern" name="section-input-concern" id="치매 간병" type="checkbox" value="치매 간병"></li>
+                    <li><input class="radio-default radio-concern section-input-concern" name="section-input-concern" id="입원 수술병원비" type="checkbox" value="입원 수술병원비"></li>
+                    <li><input class="radio-default radio-concern section-input-concern" name="section-input-concern" id="3대 진단비" type="checkbox" value="3대 진단비"></li>
+                    <li><input class="radio-default radio-concern section-input-concern" name="section-input-concern" id="3대 질병 건강보험" type="checkbox" value="3대 질병 건강보험"></li>
+                    <li><input class="radio-default radio-concern section-input-concern" name="section-input-concern" id="유병자 간편" type="checkbox" value="유병자 간편"></li>
+                    <li><input class="radio-default radio-concern section-input-concern" name="section-input-concern" id="암보험" type="checkbox" value="암보험"></li>
+                    <li><input class="radio-default radio-concern section-input-concern" name="section-input-concern" id="질병 후유장해" type="checkbox" value="질병 후유장해"></li>
+                    <li><input class="radio-default radio-concern section-input-concern" name="section-input-concern" id="치아보험" type="checkbox" value="치아보험"></li>
+                    <li><input class="radio-default radio-concern section-input-concern" name="section-input-concern" id="태아 어린이 보험" type="checkbox" value="태아 어린이 보험"></li>
+                    <li><input class="radio-default radio-concern section-input-concern" name="section-input-concern" id="일단 설계사의 추천을 받을래요" type="checkbox" value="일단 설계사의 추천을 받을래요"></li>
+                </ul>
+                <div class="error-default error-concern"></div>
+                <button class="compare-button button-prev" onclick="prevButton(2, 1)">이 전</button>
+                <button class="compare-button button-next" onclick="nextButton(2, 3); CountButton('concernCount')">다 음</button>
+            </div>      
+        </div>
+        <div class="section-price" style="display: none;">
+            <div class="inner-compare">
+                <h1 class="h1-default">3. 희망하시는 월 보험료를 알려주세요</h1>
+                <input class="input-price section-input-price" name="section-input-price" type="text" id="amount" readonly style="border: none;">
+                <div class="multi-range-slider">
+                    <input class="slider-price" type="range" id="slider-input-left" step="1000" min="0" max="500000" value="100000">
+                    <input class="slider-price" type="range" id="slider-input-right" step="1000" min="0" max="500000" value="250000">
+                    <div class="slider">
+                        <div class="track"></div>
+                        <div class="range"></div>
+                        <div class="thumb thumb-left"></div>
+                        <div class="thumb thumb-right"></div>
+                    </div>
+                </div>
+                <button class="compare-button button-prev" onclick="prevButton(3, 2)">이 전</button>
+                <button class="compare-button button-next" onclick="nextButton(3, 4); CountButton('priceCount')">다 음</button>          
+            </div>
+        </div>
+        <div class="section-hospital" style="display: none;">
+            <div class="inner-compare">
+                <h1 class="h1-default h1-hospital">4. 최근 1년 이내에 병원에 다녀온 적이 있나요</h1>
+                <input class="radio-default radio-hospital section-input-hospital" name="section-input-hospital" id="있어요" type="radio" value="있어요" onclick="radioHospital()">
+                <input class="radio-default radio-hospital section-input-hospital" name="section-input-hospital" id="없어요" type="radio" value="없어요" onclick="radioHospital()">
+                <div class="section-hospital-toggle" style="display: none;">
+                    <h1 class="h1-default h2-hospital">4-1. 병원에서 어떤 의료행위를 받으셨나요</h1>
+                    <input class="radio-default radio-hospitalTreatment section-input-hospitalTreatment" name="section-input-hospitalTreatment" id="치료" type="checkbox" value="치료">
+                    <input class="radio-default radio-hospitalTreatment section-input-hospitalTreatment" name="section-input-hospitalTreatment" id="입원" type="checkbox" value="입원">
+                    <input class="radio-default radio-hospitalTreatment section-input-hospitalTreatment" name="section-input-hospitalTreatment" id="수술" type="checkbox" value="수술">
+                    <input class="radio-default radio-hospitalTreatment section-input-hospitalTreatment" name="section-input-hospitalTreatment" id="약처방" type="checkbox" value="약처방">
+                    <input class="radio-default radio-hospitalTreatment section-input-hospitalTreatment" name="section-input-hospitalTreatment" id="진료" type="checkbox" value="진료">
+                    <input class="radio-default radio-hospitalTreatment section-input-hospitalTreatment" name="section-input-hospitalTreatment" id="잘 모르겠어요" type="checkbox" value="잘 모르겠어요">
+                    <h1 class="h1-default h3-hospital">4-2.원인이 된 증상이나 병을 알려주세요</h1>
+                    <input class="input-default input-hospitalDisease section-input-hospitalDisease" name="section-input-hospitalDisease" id="증상 병명" type="text" placeholder="증상이나 병명을 입력해주세요">
+                </div>
+                <h1 class="h1-default h4-hospital">5. 지병이 있으시다면 알려주세요</h1>
+                <input class="input-default input-disease section-input-disease" name="section-input-disease" id="지병" type="text" placeholder="지병이 있으시면 입력해주세요">
+                <div class="error-default error-hospital"></div>
+                <button class="compare-button button-prev" onclick="prevButton(4, 3)">이 전</button>
+                <button class="compare-button button-next" onclick="nextButton(4, 5); CountButton('hospitalCount')">다 음</button>
+            </div>  
+        </div>
+        <div class="section-familyDisease" style="display: none;">
+            <div class="inner-compare">
+                <h1 class="h1-default">6. 가족이 갖고있는 질환을 선택해주세요</h1>
+                <input class="radio-default2 radio-familyDisease section-input-familyDisease" name="section-input-familyDisease" id="암" type="checkbox" value="암">
+                <input class="radio-default2 radio-familyDisease section-input-familyDisease" name="section-input-familyDisease" id="뇌" type="checkbox" value="뇌">
+                <input class="radio-default2 radio-familyDisease section-input-familyDisease" name="section-input-familyDisease" id="심장" type="checkbox" value="심장">
+                <input class="radio-default2 radio-familyDisease section-input-familyDisease" name="section-input-familyDisease" id="당뇨병" type="checkbox" value="당뇨병">
+                <input class="radio-default2 radio-familyDisease section-input-familyDisease" name="section-input-familyDisease" id="고혈압" type="checkbox" value="고혈압">
+                <input class="radio-default2 radio-familyDisease section-input-familyDisease" name="section-input-familyDisease" id="고지혈증" type="checkbox" value="고지혈증">
+                <div class="section-etc">
+                    <input class="radio-default2 radio-familyDisease section-input-familyDisease" name="section-input-familyDisease" id="기타" type="checkbox" value="기타" onclick="radioFamilyDisease()">
+                    <div class="section-familyDisease-toggle" style="display: none;">
+                        <span>:</span>
+                        <input class="input-default2 input-familyDiseaseEtc section-input-familyDiseaseEtc" name="section-input-familyDiseaseEtc" id="가족력 기타" type="text" placeholder="내용을 입력해 주세요">
+                    </div>
+                </div>                
+                <input class="radio-default2 radio-familyDisease section-input-familyDisease" name="section-input-familyDisease" id="모르겠어요" type="checkbox" value="모르겠어요">
+                <div class="error-default error-familyDisease"></div>
+                <button class="compare-button button-prev" onclick="prevButton(5, 4)">이 전</button>
+                <button class="compare-button button-next" onclick="nextButton(5, 6); CountButton('familyDiseaseCount')">다 음</button>
+            </div>            
+        </div>
+        <div class="section-birth" style="display: none;">
+            <div class="inner-compare">
+                <h1 class="h1-default h1-birth">7. 생년월일을 알려주세요</h1>
+                <input class="input-default input-birth section-input-birth" name="section-input-birth" id="생년월일" type="text" placeholder="생년월일">
+                <h1 class="h1-default h2-birth">8. 성별을 알려주세요</h1>
+                <input class="radio-default radio-gender section-input-gender" name="section-input-gender" id="남자" type="radio" value="남자">
+                <input class="radio-default radio-gender section-input-gender" name="section-input-gender" id="여자" type="radio" value="여자">
+                <h1 class="h1-default h3-birth">9. 직업을 알려주세요</h1>
+                <input class="input-default input-job section-input-job" name="section-input-job" id="직업" type="text" placeholder="직업">
+                <h1 class="h1-default h4-birth">10. 사시는 지역을 알려주세요</h1>
+                <div class="selectBoxPosition"> 
+                    <div class="selectBox">
+                        <div class="selectList area1 section-input-region">지역을 선택해주세요</div>
+                        <div class="selectList area2">
+                            <div class="selectList area2-selectList">강원도</div>
+                            <div class="selectList area2-selectList">경기도</div>
+                            <div class="selectList area2-selectList">경상북도</div>
+                            <div class="selectList area2-selectList">경상남도</div>
+                            <div class="selectList area2-selectList">광주광역시</div>
+                            <div class="selectList area2-selectList">대구광역시</div>
+                            <div class="selectList area2-selectList">대전광역시</div>
+                            <div class="selectList area2-selectList">부산광역시</div>
+                            <div class="selectList area2-selectList">서울특별시</div>
+                            <div class="selectList area2-selectList">세종특별자치시</div>
+                            <div class="selectList area2-selectList">울산광역시</div>
+                            <div class="selectList area2-selectList">인천광역시</div>
+                            <div class="selectList area2-selectList">제주특별자치도</div>
+                            <div class="selectList area2-selectList">전라남도</div>
+                            <div class="selectList area2-selectList">전라북도</div>
+                            <div class="selectList area2-selectList">충청남도</div>
+                            <div class="selectList area2-selectList">충청북도</div>
+                        </div>                                                     
+                    </div>
+                </div> 
+                <div class="agreement">
+                    <input class="input-agreement" type="checkbox" name="section-input-agreement" id="check-agreement">
+                    <label for="check-agreement">개인정보 처리방침 동의</span>
+                    <a class="a-agreement" href="/agreement/" target="_blank">[보기]</a>                
+                </div>
+                <div class="error-default error-birth"></div>
+                <button class="compare-button button-prev" onclick="prevButton(6, 5)">이 전</button>
+                <button class="compare-button button-next" onclick="nextButton(6); CountButton('birthCount')">완료</button>
+            </div>           
+        </div>       
+
+        <div class="section-form" style="display: none;">
+            <form action="" method="post" name="form">
+                {% csrf_token %}
+                {% for field in form %}
+                {% if field.name == 'method' or field.name == 'concern' or field.name == 'hospital' or field.name == 'familyDisease' or field.name == 'gender' %}
+                    {% for radio in field.field.choices %}
+                    <input class="{{ field.name }}" type="{{ field.field.widget.input_type }}" id="form_{{ radio.0 }}" name="{{ field.name }}" value="{{ radio.0 }}">
+                    <label for="{{ radio.0 }}">{{ radio.0 }}</label>
+                    {% endfor %}
+                {% elif field.name == 'hospitalTreatment' %}
+                    {% for radio in field.field.choices %}
+                    {% if radio.0 == '선택안함' %}
+                    <input class="{{ field.name }}" type="{{ field.field.widget.input_type }}" id="form_{{ radio.0 }}" name="{{ field.name }}" value="{{ radio.0 }}" checked="checked">
+                    <label for="{{ radio.0 }}">{{ radio.0 }}</label>
+                    {% else %}
+                    <input class="{{ field.name }}" type="{{ field.field.widget.input_type }}" id="form_{{ radio.0 }}" name="{{ field.name }}" value="{{ radio.0 }}">
+                    <label for="{{ radio.0 }}">{{ radio.0 }}</label>
+                    {% endif %}
+                    {% endfor %}
+                {% elif field.name == 'price' %}
+                    <input class="{{ field.name }}" type="{{ field.field.widget.input_type }}" id="form_{{ field.id_for_label }}" name="{{ field.name }}">
+                {% else %}
+                    <input class="input-text {{ field.name }}" type="{{ field.field.widget.input_type }}" id="form_{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
+                {% endif %}
+                {% endfor %}
+                <button type="submit">회원가입</button>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}
