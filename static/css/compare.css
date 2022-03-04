@@ -127,7 +127,7 @@
         top: 50%;
         left: 40px;
         transform: translate(0,-50%);
-        color: #cccccc;
+        color: #919191;
         font-size: 22px;
         cursor: pointer;
     }
@@ -304,7 +304,7 @@
     .section-method h3{
         margin-top: 20px;
         font-size: 14px;
-        color: #cccccc;
+        color: #b1b1b1;
     }
     .section-method .select-radio{
         margin-top: 20px;
@@ -968,7 +968,7 @@
         top: 50%;
         left: 30px;
         transform: translate(0,-50%);
-        color: #cccccc;
+        color: #919191;
         font-size: 13px;
         cursor: pointer;
     }

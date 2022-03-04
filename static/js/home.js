@@ -1,15 +1,15 @@
 (function (window, document) {
     'user strict';
-    
+
 
     window.addEventListener('load', async function(){
         try {
             const response = await axios.get('https://api.ipify.org?format=json');
             $.ajax({type: 'GET', url: 'getip/', dataType: 'json', data: {'data': response.data.ip}})
-            // alert(response.data.ip)
+
         } catch (error) {
             $.ajax({type: 'GET', url: 'getip/', dataType: 'json', data: {'data': 'errorIP'}})
-            // alert('errorIP')
+
         }        
     })
     
@@ -24,6 +24,7 @@
     window.addEventListener('resize', function() {
         if (window.innerWidth > 820) {
             offElments();
+            
         }
     });
     function toggleElements() {
@@ -45,12 +46,6 @@
         const unloadTime = Math.floor(new Date().getTime() / 1000)
         $.ajax({type: 'GET', url: 'gettime/', dataType: 'json', data: {'data': unloadTime - loadTime}})
     })
-
-    // const $focus = document.getElementsByClassName('gabot-focus')[0]
-    // $focus.addEventListener('click', function(){
-    //     document.querySelector('.section2').scrollIntoView()
-    //     console.log('test')
-    // })
 
 })(window, document)
 

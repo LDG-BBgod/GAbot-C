@@ -74,9 +74,6 @@ function nextButton(data, navData) {
     else if (data == '4' && $('input[name="section-input-hospital"]:checked').val() == '있어요' && document.getElementsByClassName("section-input-hospitalDisease")[0].value == ''){
         document.getElementsByClassName("error-hospital")[0].innerHTML = "증상이나 병명을 입력해 주세요"
     }
-    else if (data == '4' && document.getElementsByClassName("section-input-disease")[0].value == '') {
-        document.getElementsByClassName("error-hospital")[0].innerHTML = "지병을 입력해 주세요"
-    }
 
     else if (data == '5' && !$('input[name="section-input-familyDisease"]').is(":checked")) {
         document.getElementsByClassName("error-familyDisease")[0].innerHTML = "가족력을 선택해 주세요"

@@ -23,7 +23,6 @@ DEBUG = False
 ALLOWED_HOSTS = [
     '.gabot.co.kr',
     '.www.gabot.co.kr',
-
 ]
 
 
