@@ -75,6 +75,9 @@ header .menu li a{
     color: var(--color3);
     margin-top: 20px;
 }
+.section1 .title p span{
+    color: #fff;
+}
 .section1 .title p:last-child{
     display: none;
 }
@@ -748,7 +751,7 @@ footer .right-side a{
     }
     .section1 .button1 a{
         width: 200px;
-        font-size: 15px;
+        font-size: 18px;
         padding: 12px 20px;
 
     }
@@ -758,7 +761,7 @@ footer .right-side a{
     }
     .section1 .button2 a{
         width: 200px;
-        font-size: 15px;
+        font-size: 18px;
         padding: 12px 20px;
 
     }
