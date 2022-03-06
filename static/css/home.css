@@ -96,7 +96,7 @@ header .menu li a{
     padding: 12px 20px;
 }
 .section1 .section1-img{
-    background: url('../img/home_section1_1.png') 80% 50% no-repeat;
+    background: url('../img/home_section1_1.svg') 80% 50% no-repeat;
     background-size: contain;
     height: 400px;
     width: 330px;
