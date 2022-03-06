@@ -84,16 +84,27 @@
         <div class="section-price" style="display: none;">
             <div class="inner-compare">
                 <h1 class="h1-default">3. 희망하시는 월 보험료를 알려주세요</h1>
-                <input class="input-price section-input-price" name="section-input-price" type="text" id="amount" readonly style="border: none;">
+                <div class="text-price">
+                    <div class="text-price-left">
+                        <div class="content">직접입력</div>
+                        <input class="input-price-text input-price-text-left" id="input-price-text-left" type="text" value="0">원
+                    </div>
+                    <span>~</span>
+                    <div class="text-price-right">
+                        <input class="input-price-text input-price-text-right" id="input-price-text-right" type="text" value="100,000">원
+                    </div>
+                </div>
+                <input class="input-price section-input-price" name="section-input-price" type="text" id="amount" readonly style="display: none;">
                 <div class="multi-range-slider">
-                    <input class="slider-price" type="range" id="slider-input-left" step="1000" min="0" max="500000" value="0">
-                    <input class="slider-price" type="range" id="slider-input-right" step="1000" min="0" max="500000" value="100000">
+                    <input class="slider-price" type="range" id="slider-input-left" step="1" min="0" max="500000" value="0">
+                    <input class="slider-price" type="range" id="slider-input-right" step="1" min="0" max="500000" value="100000">
                     <div class="slider">
                         <div class="track"></div>
                         <div class="range"></div>
                         <div class="thumb thumb-left"></div>
                         <div class="thumb thumb-right"></div>
                     </div>
+                    
                 </div>
                 <button class="compare-button button-prev" onclick="prevButton(3, 2)">이 전</button>
                 <button class="compare-button button-next" onclick="nextButton(3, 4); CountButton('priceCount')">다 음</button>          

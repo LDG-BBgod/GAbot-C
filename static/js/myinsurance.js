@@ -25,10 +25,10 @@ function nextButton(data) {
     if (data == '1' && document.getElementsByClassName("section-input-phone")[0].value == '') {
         document.getElementsByClassName("error-information")[0].innerHTML = "연락처를 입력해 주세요"
     }
-    else if (data == '1' && document.getElementsByClassName("section-input-consultingDate")[0].innerHTML == '날짜를 선택해주세요') {
+    else if (data == '1' && document.getElementsByClassName("section-input-consultingDate")[0].innerHTML == '날짜 선택') {
         document.getElementsByClassName("error-information")[0].innerHTML = "날짜를 선택해주세요"
     }
-    else if (data == '1' && document.getElementsByClassName("section-input-consultingTime")[0].innerHTML == '시간을 선택해주세요') {
+    else if (data == '1' && document.getElementsByClassName("section-input-consultingTime")[0].innerHTML == '시간 선택') {
         document.getElementsByClassName("error-information")[0].innerHTML = "시간을 선택해주세요"
     }
     else if (data == '1' && !$('input[name="section-input-agreement"]').is(":checked")) {

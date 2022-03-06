@@ -1,8 +1,8 @@
-from multiprocessing import context
 from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Home
 from gauser.models import Compare
+
 
 def HomeView(request):
 

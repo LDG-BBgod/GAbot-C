@@ -1,6 +1,11 @@
 from django import forms
 from .models import Compare, Myinsurance
 
+from django.core.mail import send_mail
+from django.conf import settings
+
+
+
 class CompareForm(forms.Form):
     METHOD_CHOICES = (
         ('메일','메일'),
@@ -135,6 +140,14 @@ class CompareForm(forms.Form):
                 region=region,
             )
             gauser.save()
+
+            # subject = '제목 테스트'
+            # message = '내용 테스트'
+            # email_from = 'padzz3211'
+            # recipient_list = ['padzz321@gmail.com',]
+            # async def sendMail():
+            #     await send_mail(subject, message, email_from, recipient_list, html_message=message)
+            # sendMail()
 
 class MyinsuranceForm(forms.Form):
 

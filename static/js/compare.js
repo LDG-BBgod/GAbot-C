@@ -1,8 +1,13 @@
+// 슬라이드바 //
+
 const sliderInputLeft = document.getElementById('slider-input-left')
 const sliderInputRight = document.getElementById('slider-input-right')
 const thumbLeft = document.querySelector('.slider > .thumb-left')
 const thumbRight = document.querySelector('.slider > .thumb-right')
 const sliderRange = document.querySelector('.slider > .range')
+
+const sliderInputTextLeft = document.getElementById('input-price-text-left')
+const sliderInputTextRight = document.getElementById('input-price-text-right')
 
 $( "#amount" ).val(parseInt(sliderInputLeft.value).toLocaleString('ko-KR') + "원 - " +  parseInt(sliderInputRight.value).toLocaleString('ko-KR') + "원");
 sliderRange.style.left = sliderInputLeft.value/(parseInt(sliderInputLeft.max)-parseInt(sliderInputLeft.min))*100 + '%'
@@ -10,21 +15,40 @@ sliderRange.style.right = 100-(sliderInputRight.value/(parseInt(sliderInputLeft.
 thumbLeft.style.left = sliderInputLeft.value/(parseInt(sliderInputLeft.max)-parseInt(sliderInputLeft.min))*100 + '%'
 thumbRight.style.right = 100-(sliderInputRight.value/(parseInt(sliderInputLeft.max)-parseInt(sliderInputLeft.min)))*100 + '%'
 
-function sliderSetLeftValue() {
+function sliderSetLeftValue(type) {
     const _this = sliderInputLeft
     const [min, max] = [parseInt(_this.min), parseInt(_this.max)]
 
     _this.value = Math.min(parseInt(_this.value), parseInt(sliderInputRight.value))
 
     const percent = ((_this.value - min)/(max - min)*100)
+    if (percent > 50) {
+        document.getElementById('slider-input-left').style.zIndex = '3'
+        document.getElementById('slider-input-right').style.zIndex = '2'
+    }
+    else {
+        document.getElementById('slider-input-left').style.zIndex = '2'
+        document.getElementById('slider-input-right').style.zIndex = '3'
+    }
     thumbLeft.style.left = percent + '%'
     sliderRange.style.left = percent + '%'
-
-    const minPrice = _this.value
-    const maxPrice = sliderInputRight.value
-    $( "#amount" ).val(parseInt(minPrice).toLocaleString('ko-KR') + "원 - " +  parseInt(maxPrice).toLocaleString('ko-KR') + "원");
+    if (type == 'slide'){
+        const minPrice = Math.ceil(_this.value/1000)*1000
+        const maxPrice = Math.ceil(sliderInputRight.value/1000)*1000
+        
+        _this.value = minPrice
+        $( "#amount" ).val(parseInt(minPrice).toLocaleString('ko-KR') + "원 - " +  parseInt(maxPrice).toLocaleString('ko-KR') + "원");
+        sliderInputTextLeft.value = minPrice
+        updateTextView($('#input-price-text-left'));
+    }
+    else {
+        const minPrice = Math.min(parseInt(_this.value), Math.ceil(parseInt(sliderInputRight.value)/1000)*1000)
+        const maxPrice = Math.ceil(sliderInputRight.value/1000)*1000
+        $( "#amount" ).val(parseInt(minPrice).toLocaleString('ko-KR') + "원 - " +  parseInt(maxPrice).toLocaleString('ko-KR') + "원");
+        return minPrice
+    }
 }
-function sliderSetRightValue() {
+function sliderSetRightValue(type) {
     const _this = sliderInputRight
     const [min, max] = [parseInt(_this.min), parseInt(_this.max)]
 
@@ -33,16 +57,78 @@ function sliderSetRightValue() {
     const percent = ((_this.value - min)/(max - min)*100)
     thumbRight.style.right = 100 - percent + '%'
     sliderRange.style.right = 100 - percent + '%'
-
-    const minPrice = sliderInputLeft.value
-    const maxPrice = _this.value
-    $( "#amount" ).val(parseInt(minPrice).toLocaleString('ko-KR') + "원 - " +  parseInt(maxPrice).toLocaleString('ko-KR') + "원");
+    if (type == 'slide'){
+        const minPrice = Math.ceil(sliderInputLeft.value/1000)*1000
+        const maxPrice = Math.ceil(_this.value/1000)*1000
+        
+        _this.value = maxPrice
+        $( "#amount" ).val(parseInt(minPrice).toLocaleString('ko-KR') + "원 - " +  parseInt(maxPrice).toLocaleString('ko-KR') + "원")
+        sliderInputTextRight.value = maxPrice
+        updateTextView($('#input-price-text-right'));
+    }
+    else{
+        const minPrice = Math.ceil(sliderInputLeft.value/1000)*1000
+        const maxPrice = Math.max(parseInt(_this.value), Math.ceil(parseInt(sliderInputLeft.value)/1000)*1000)
+        $( "#amount" ).val(parseInt(minPrice).toLocaleString('ko-KR') + "원 - " +  parseInt(maxPrice).toLocaleString('ko-KR') + "원");
+        return maxPrice
+    }
+}
+function sliderSetByTextLeft() {
+    const price = sliderInputTextLeft.value.replace(/,/g, "");
+    sliderInputLeft.value = price
+    sliderSetLeftValue('text')
+}
+function sliderSetByTextRight() {
+    const price = sliderInputTextRight.value.replace(/,/g, "");
+    sliderInputRight.value = price
+    sliderSetRightValue('text')
 }
 
-sliderInputLeft.addEventListener('input', sliderSetLeftValue)
-sliderInputRight.addEventListener('input', sliderSetRightValue)
+sliderInputLeft.addEventListener('input', function(){
+    sliderSetLeftValue('slide')
+})
+sliderInputRight.addEventListener('input', function(){
+    sliderSetRightValue('slide')
+})
+sliderInputTextLeft.addEventListener('input', sliderSetByTextLeft)
+sliderInputTextRight.addEventListener('input', sliderSetByTextRight)
+$('#input-price-text-left').focusout(function(){
+    sliderInputTextLeft.value = sliderSetLeftValue('text')
+    updateTextView($(this));
+})
+$('#input-price-text-right').focusout(function(){
+    sliderInputTextRight.value = sliderSetRightValue('text')
+    updateTextView($(this));
+})
+
+function updateTextView(_obj){
+    var num = getNumber(_obj.val())
+    if(num==0){
+        _obj.val('0')
+    }
+    else{
+      _obj.val(num.toLocaleString())
+    }
+}
+function getNumber(_str){
+    var arr = _str.split('')
+    var out = new Array()
+    for(var cnt=0;cnt<arr.length;cnt++){
+        if(isNaN(arr[cnt])==false){
+            out.push(arr[cnt])
+        }
+    }
+    return Number(out.join(''))
+}
+$('#input-price-text-left').on('keyup',function(){
+    updateTextView($(this));
+});
+$('#input-price-text-right').on('keyup',function(){
+    updateTextView($(this));
+});
 
 
+// prev, next버튼 //
 function nextButton(data, navData) {
     var modelArr = ['section-start', 'section-method', 'section-concern', 'section-price', 'section-hospital', 'section-familyDisease', 'section-birth']
 
@@ -138,8 +224,9 @@ function nextButton(data, navData) {
         for (i = 0; i < checkboxModelArr.length; i++) checkboxData(checkboxModelArr[i])
         for (i = 0; i < selectModelArr.length; i++) selectData(selectModelArr[i])
 
+
+
         var form = document.form
-        console.log('설문완료')
         form.submit()
     }
     else {
@@ -236,6 +323,7 @@ function navBar(data) {
 
 }
 
+// selectBox //
 const sectionArea = document.querySelector('.section')
 const toggleArea = document.querySelector('.selectBox')
 const selectList = $('.selectList')
