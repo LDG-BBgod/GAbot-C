@@ -1,7 +1,9 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from django.utils.dateformat import DateFormat
 from .models import Home
 from gauser.models import Compare
+from datetime import datetime
 
 
 def HomeView(request):
@@ -70,8 +72,9 @@ def GetIPView(request):
         userIP = Home.objects.get(userIP = userIP)
         request.session['user'] = userIP.userIP
     except Home.DoesNotExist:
-
+        registerDate = DateFormat(datetime.now()).format('20y.m.d / h:i a')
         userIP = Home(userIP = userIP)
+        userIP.registerDate = registerDate
         userIP.save()
         request.session['user'] = userIP.userIP
 

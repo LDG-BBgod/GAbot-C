@@ -1,8 +1,7 @@
 from django import forms
 from .models import Compare, Myinsurance
-
-from django.core.mail import send_mail
-from django.conf import settings
+from django.utils.dateformat import DateFormat
+from datetime import datetime
 
 
 
@@ -120,10 +119,13 @@ class CompareForm(forms.Form):
         familyDiseaseEtc = emptyText(familyDiseaseEtc)
         birth = emptyText(birth)
         job = emptyText(job)
+        
+        registerDate = DateFormat(datetime.now()).format('20y.m.d / h:i a')
 
         if method:
             gauser = Compare(
                 userIP = userIP,
+                registerDate=registerDate,
                 method=method,
                 contact=contact,
                 concern=concern,
@@ -141,13 +143,6 @@ class CompareForm(forms.Form):
             )
             gauser.save()
 
-            # subject = '제목 테스트'
-            # message = '내용 테스트'
-            # email_from = 'padzz3211'
-            # recipient_list = ['padzz321@gmail.com',]
-            # async def sendMail():
-            #     await send_mail(subject, message, email_from, recipient_list, html_message=message)
-            # sendMail()
 
 class MyinsuranceForm(forms.Form):
 
@@ -177,12 +172,14 @@ class MyinsuranceForm(forms.Form):
         consultingDate = emptyText(consultingDate)
         consultingTime = emptyText(consultingTime)
 
+        registerDate = DateFormat(datetime.now()).format('20y.m.d / h:i a')
+
         if phone:
             gauser = Myinsurance(
                 userIP=userIP,
+                registerDate=registerDate,
                 phone=phone,
                 consultingDate=consultingDate,
                 consultingTime=consultingTime,            
             )
             gauser.save()
-            print('데이터 저장 성공')

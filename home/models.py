@@ -1,3 +1,5 @@
+from email.policy import default
+from operator import truediv
 from django.db import models
 
 class Home(models.Model):
@@ -13,6 +15,7 @@ class Home(models.Model):
     hospitalCount = models.IntegerField(verbose_name='병원이력', default='0')
     familyDiseaseCount = models.IntegerField(verbose_name='가족력', default='0')
     birthCount = models.IntegerField(verbose_name='개인정보', default='0')
+    registerDate = models.CharField(max_length=64, verbose_name='등록시간', default='0')
 
     def __str__(self):
         return self.userIP

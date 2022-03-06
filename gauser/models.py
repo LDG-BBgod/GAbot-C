@@ -2,6 +2,7 @@ from django.db import models
 
 class Compare(models.Model):
     userIP = models.CharField(max_length=64, verbose_name='유저IP', default='유저IP')
+    registerDate = models.CharField(max_length=64, verbose_name='등록시간', default='0')
     method = models.CharField(max_length=64, verbose_name='연락 수단', blank=True, null=True)
     contact = models.CharField(max_length=64, verbose_name='연락처', blank=True, null=True)
     concern = models.CharField(max_length=64, verbose_name='관심 보험', blank=True, null=True)
@@ -16,6 +17,7 @@ class Compare(models.Model):
     gender = models.CharField(max_length=64, verbose_name='성별', blank=True, null=True)
     job = models.CharField(max_length=64, verbose_name='직업', blank=True, null=True)
     region = models.CharField(max_length=64, verbose_name='거주지', blank=True, null=True)
+    
 
     class Meta:
         db_table = 'gauser_compare'
@@ -24,6 +26,7 @@ class Compare(models.Model):
 
 class Myinsurance(models.Model):
     userIP = models.CharField(max_length=64, verbose_name='유저IP', default='유저IP')
+    registerDate = models.CharField(max_length=64, verbose_name='등록시간', default='0')
     phone = models.CharField(max_length=64, verbose_name='연락처', blank=True, null=True)
     consultingDate = models.CharField(max_length=64, verbose_name='상담날짜', blank=True, null=True)
     consultingTime = models.CharField(max_length=64, verbose_name='상담시간', blank=True, null=True)
