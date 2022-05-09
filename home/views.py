@@ -1,12 +1,17 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.utils.dateformat import DateFormat
-from .models import Home
+from .models import Home, UserCount
 from gauser.models import Compare
 from datetime import datetime
 
 
 def HomeView(request):
+
+    userCount = UserCount.objects.last()
+    userCount.userCount += 1
+    userCount.save()
+
 
     homeObjectCount = len(Compare.objects.all()) + 10000  #10000개 추가
     return render(request, 'home.html', {'count': homeObjectCount})
@@ -71,6 +76,11 @@ def GetIPView(request):
     try:
         userIP = Home.objects.get(userIP = userIP)
         request.session['user'] = userIP.userIP
+
+        refreshCount = Home.objects.last()
+        refreshCount.refreshCount += 1
+        refreshCount.save()
+
     except Home.DoesNotExist:
         registerDate = DateFormat(datetime.now()).format('20y.m.d / h:i a')
         userIP = Home(userIP = userIP)
@@ -85,7 +95,7 @@ def GetIPView(request):
 def GetTimeView(request):
     stayTime = request.GET.get('data')
     userIP = request.session.get('user')
-    gaUser = Home.objects.get(userIP=userIP)
-    gaUser.stayTime = gaUser.stayTime + int(stayTime)
+    gaUser = Home.objects.get(userIP=userIP) 
+    gaUser.stayTime = gaUser.stayTime + round(float(stayTime), 3)
     gaUser.save()
     return HttpResponse()

@@ -1,14 +1,14 @@
 (function (window, document) {
     'user strict';
 
-
     window.addEventListener('load', async function(){
         try {
             const response = await axios.get('https://api.ipify.org?format=json');
             $.ajax({type: 'GET', url: 'getip/', dataType: 'json', data: {'data': response.data.ip}})
 
         } catch (error) {
-            $.ajax({type: 'GET', url: 'getip/', dataType: 'json', data: {'data': 'errorIP'}})
+            location.reload()
+            // $.ajax({type: 'GET', url: 'getip/', dataType: 'json', data: {'data': 'errorIP'}})
 
         }        
     })
@@ -40,10 +40,10 @@
 
     let loadTime
     window.addEventListener('pageshow',function(){
-        loadTime =  Math.floor(new Date().getTime() / 1000)
+        loadTime = new Date().getTime() / 1000
     })
     window.addEventListener('beforeunload', function(){
-        const unloadTime = Math.floor(new Date().getTime() / 1000)
+        const unloadTime = new Date().getTime() / 1000
         $.ajax({type: 'GET', url: 'gettime/', dataType: 'json', data: {'data': unloadTime - loadTime}})
     })
 

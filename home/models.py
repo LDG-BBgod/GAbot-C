@@ -1,11 +1,12 @@
 from email.policy import default
 from operator import truediv
+from unicodedata import decimal
 from django.db import models
 
 class Home(models.Model):
     userIP = models.CharField(max_length=64, verbose_name='유저IP')
-    stayTime = models.IntegerField(verbose_name='홈페이지 채류시간', default='0')
-    refreshCount = models.IntegerField(verbose_name='홈페이지 새로고침', default='1')
+    stayTime = models.FloatField(verbose_name='홈페이지 채류시간',default='0')
+    refreshCount = models.IntegerField(verbose_name='홈페이지 새로고침', default='0')
     compareCount = models.IntegerField(verbose_name='보험견적비교', default='0')
     diagnosisCount = models.IntegerField(verbose_name='My보험 진단', default='0')
     startCount = models.IntegerField(verbose_name='비교견적 시작', default='0')
@@ -24,3 +25,12 @@ class Home(models.Model):
         db_table = 'home_homeButton'
         verbose_name = '버튼 횟수'
         verbose_name_plural = '버튼 횟수'
+
+class UserCount(models.Model):
+    userCount = models.IntegerField(verbose_name='방문자수')
+
+
+    class Meta:
+        db_table = 'home_userCount'
+        verbose_name = '방문자수'
+        verbose_name_plural = '방문자수'
