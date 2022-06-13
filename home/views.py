@@ -6,7 +6,6 @@ from gauser.models import Compare
 from datetime import datetime
 
 from django.views.decorators.csrf import csrf_exempt
-import time
 
 
 
@@ -15,10 +14,6 @@ def HomeView(request):
     userCount = UserCount.objects.last()
     userCount.userCount += 1
     userCount.save()
-    
-
-
-
 
     def get_client_ip(request):
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -42,10 +37,6 @@ def HomeView(request):
         userIP.registerDate = registerDate
         userIP.save()
         request.session['user'] = userIP.userIP
-
-
-
-
 
     homeObjectCount = len(Compare.objects.all()) + 10000  #10000개 추가
     return render(request, 'home.html', {'count': homeObjectCount})
@@ -96,8 +87,6 @@ def JsonDataView(request):
     elif data == 'birthCount':
         gaUser.birthCount += 1
         gaUser.save()
-    # elif data == 'timer':
-    #     print('test')
     else:
         print('JSON DATA 알수없는 값 받음')
 
@@ -122,8 +111,6 @@ def GetIPView(request):
         userIP.save()
         request.session['user'] = userIP.userIP
 
-
-
     return HttpResponse()
     
 @csrf_exempt
@@ -134,4 +121,5 @@ def GetTimeView(request):
     gaUser = Home.objects.get(userIP=userIP) 
     gaUser.stayTime = gaUser.stayTime + round(float(stayTime), 3)
     gaUser.save()
+    
     return HttpResponse()

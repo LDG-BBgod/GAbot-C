@@ -52,8 +52,6 @@
         let timeData = new FormData()
         timeData.append('data', unloadTime - loadTime)
         navigator.sendBeacon("gettime/", timeData)
-       
-
     });
 
 })(window, document)

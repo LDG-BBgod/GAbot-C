@@ -1,6 +1,4 @@
 from email.policy import default
-from operator import truediv
-from unicodedata import decimal
 from django.db import models
 
 class Home(models.Model):
