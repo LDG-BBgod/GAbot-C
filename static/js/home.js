@@ -1,17 +1,17 @@
 (function (window, document) {
     'user strict';
 
-    window.addEventListener('load', async function(){
-        try {
-            const response = await axios.get('https://api.ipify.org?format=json');
-            $.ajax({type: 'GET', url: 'getip/', dataType: 'json', data: {'data': response.data.ip}})
+    // window.addEventListener('load', async function(){
+    //     try {
+    //         const response = await axios.get('https://api.ipify.org?format=json');
+    //         $.ajax({type: 'GET', url: 'getip/', dataType: 'json', data: {'data': response.data.ip}})
 
-        } catch (error) {
-            location.reload()
-            // $.ajax({type: 'GET', url: 'getip/', dataType: 'json', data: {'data': 'errorIP'}})
+    //     } catch (error) {
+    //         // location.reload()
+    //         $.ajax({type: 'GET', url: 'getip/', dataType: 'json', data: {'data': 'error'}})
 
-        }        
-    })
+    //     }        
+    // })
     
 
     const $toggles = document.querySelectorAll('.toggle');
@@ -42,10 +42,19 @@
     window.addEventListener('pageshow',function(){
         loadTime = new Date().getTime() / 1000
     })
-    window.addEventListener('beforeunload', function(){
+    // window.addEventListener('beforeunload', function(){
+    //     const unloadTime = new Date().getTime() / 1000
+    //     $.ajax({type: 'GET', url: 'gettime/', dataType: 'json', data: {'data': unloadTime - loadTime}})
+    // })
+
+    window.addEventListener("unload", function() {
         const unloadTime = new Date().getTime() / 1000
-        $.ajax({type: 'GET', url: 'gettime/', dataType: 'json', data: {'data': unloadTime - loadTime}})
-    })
+        let timeData = new FormData()
+        timeData.append('data', unloadTime - loadTime)
+        navigator.sendBeacon("gettime/", timeData)
+       
+
+    });
 
 })(window, document)
 

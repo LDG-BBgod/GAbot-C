@@ -1,9 +1,13 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.utils.dateformat import DateFormat
 from .models import Home, UserCount
 from gauser.models import Compare
 from datetime import datetime
+
+from django.views.decorators.csrf import csrf_exempt
+import time
+
 
 
 def HomeView(request):
@@ -11,6 +15,36 @@ def HomeView(request):
     userCount = UserCount.objects.last()
     userCount.userCount += 1
     userCount.save()
+    
+
+
+
+
+    def get_client_ip(request):
+        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+        if x_forwarded_for:
+            ip = x_forwarded_for.split(',')[0]
+        else:
+            ip = request.META.get('REMOTE_ADDR')
+        return ip
+
+    try:
+        userIP = Home.objects.get(userIP = get_client_ip(request))
+        request.session['user'] = userIP.userIP
+
+        refreshCount = Home.objects.last()
+        refreshCount.refreshCount += 1
+        refreshCount.save()
+
+    except Home.DoesNotExist:
+        registerDate = DateFormat(datetime.now()).format('20y.m.d / h:i a')
+        userIP = Home(userIP = get_client_ip(request))
+        userIP.registerDate = registerDate
+        userIP.save()
+        request.session['user'] = userIP.userIP
+
+
+
 
 
     homeObjectCount = len(Compare.objects.all()) + 10000  #10000개 추가
@@ -62,8 +96,8 @@ def JsonDataView(request):
     elif data == 'birthCount':
         gaUser.birthCount += 1
         gaUser.save()
-    elif data == 'timer':
-        print('test')
+    # elif data == 'timer':
+    #     print('test')
     else:
         print('JSON DATA 알수없는 값 받음')
 
@@ -91,9 +125,11 @@ def GetIPView(request):
 
 
     return HttpResponse()
-
+    
+@csrf_exempt
 def GetTimeView(request):
-    stayTime = request.GET.get('data')
+
+    stayTime = request.POST.get('data')
     userIP = request.session.get('user')
     gaUser = Home.objects.get(userIP=userIP) 
     gaUser.stayTime = gaUser.stayTime + round(float(stayTime), 3)
