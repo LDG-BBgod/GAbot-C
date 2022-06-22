@@ -6,7 +6,7 @@ class Home(models.Model):
     stayTime = models.FloatField(verbose_name='홈페이지 채류시간',default='0')
     refreshCount = models.IntegerField(verbose_name='홈페이지 새로고침', default='0')
     compareCount = models.IntegerField(verbose_name='보험견적비교', default='0')
-    diagnosisCount = models.IntegerField(verbose_name='My보험 진단', default='0')
+    diagnosisCount = models.IntegerField(verbose_name='보험견적비교2', default='0')
     startCount = models.IntegerField(verbose_name='비교견적 시작', default='0')
     methodCount = models.IntegerField(verbose_name='연락수단', default='0')
     concernCount = models.IntegerField(verbose_name='관심보험', default='0')

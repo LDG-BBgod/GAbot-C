@@ -8,118 +8,122 @@
 {% endblock %}
 
 {% block contents %}
-<header id="headerbar">
+<header>
     <div class="inner clearfix">
         <div class="logo float-left">
-            <a href="/"></a>
+            <a class="logo-name" href="/">보험비서</a>
+            <a class="hover-button" href="/"><img src="../../static/img/home_logo.svg" alt="logo"></a>
         </div>
-        <ul class="menu float-right align-item toggle">
-            <li><a href="#section2">GAbot 소개</a></li>
-            <li><a href="compare/">보험 비교 견적</a></li>
-            <li><a href="myinsurance/">My보험 진단</a></li>
-            <li><a href="myinsurancedirect/">상담 신청하기</a></li>
+        <ul class="menu float-right">
+            <li class="hover-button" onclick="location.href='/select'; CountButton('compareCount')">보험 관리 시작하기</li>
+            <li style="display: none;"><a class="hover-button" href="#"><img src="../../static/img/home_menubar.svg" alt="menubar"></a></li>
         </ul>
-        <div id="toggle-button"></div>
     </div>
 </header>
 <section class="section section1">
+    <img src="../../static/img/home_background.png" alt="홈배경">
     <div class="inner">
-        <div class="title">
-            <h1>당신의 보험비서 GAbot</h1>
-            <p><span>'연락없는' </span> 보험 비교, 견적, 진단</p>
-            <p>간편하고 쉽게 직접 체크해 보세요</p>
+        <div class="box">        
+            <div class="content-left">
+                <div class="img-box">
+                    <img src="../../static/img/home_logo.svg" alt="logo">
+                </div>                
+                <div class="title">스마트한 보험관리의 시작</div>
+                <div class="sub-title">보험비서 GABOT</div>
+            </div>
+            <div class="content-right">
+                <img src="../../static/img/home_mainImg.svg" alt="메인이미지">
+            </div>
         </div>
-        <div class="button1"><a href="compare/" class="hover-button" onclick="CountButton('compareCount')">보험 비교 견적 하러가기</a></div>
-        <div class="button2"><a href="myinsurance/" class="hover-button-reverse" onclick="CountButton('diagnosisCount')">내보험 진단 하러가기</a></div>
-        <div class="section1-img"></div>
     </div>
 </section>
 <section class="section section2">
-    <a name="section2"></a>
     <div class="inner">
-        <div class="box">
-            <div class="title">
-                <p>보험영업전화 불편하시죠?</p>
-                <h3>GAbot은 영업없이 고객님의 비서가 되어드립니다</h3>
-            </div>
-            <ul>
-                <li class="list1">
-                    <div class="img-box">
-                        <div class="section2-img1"></div>
-                    </div>
-                    <h3>먼저 광고, 연락하지 않습니다</h3>
-                    <p>GABOT은 고객님이 서비스를 이용하셔도 절대 먼저 연락드리지 않습니다. 사용 이후 광고성 전화나 메시지도 가지 않습니다. 고객님이 편하신 시간과 상황에 연락주시거나, 예약을 남겨주시면 됩니다.</p>
-                </li>
-                <li class="list2">
-                    <div class="img-box">
-                        <div class="section2-img2"></div>
-                    </div>
-                    <h3>개인화 서비스를 제공합니다</h3>
-                    <p>GABOT은 적합보험을 찾는 일에 집중합니다. 고객님만의 상황과 원하시는 조건에 맞춰 5~6개 정도의 맞춤 비교견적과 함께 요약된 설명을 해드립니다. 이후 고객님이 원하시는 방향으로 수정 가능합니다.</p>
-                </li>
-                <li class="list3">
-                    <div class="img-box">
-                        <div class="section2-img3"></div>
-                    </div>
-                    <h3>정보를 거래하지 않습니다</h3>
-                    <p>GABOT은 신상정보를 파악하기 어려운 최소한의 정보만을 가지고 설계하는 것을 지향하며, 고객님을 특정(mail 혹은 연락처)할 수 있는 정보는 오직 GABOT에서만 관리하며 판매, 유출하지 않습니다.</p>
-                </li>
-            </ul>
-            <div class="text-box">
-                <h3>지금까지 GAbot은 고객님들에게</h3>
-                <div class="count-box">
-                    <p>{{ count|intcomma }}</p>
-                    <h3>번 채용되었습니다</h3>
+        <div class="title">GABOT 이렇게 사용해 보세요!</div>
+        <ul id="dragBox">
+            <li>
+                <div class="number">01</div>
+                <div class="img-box">
+                    <img src="../../static/img/home_section2_1.svg" alt="img1">
                 </div>
-            </div>
-        </div>        
+                <div class="sub-title">내 보험 진단</div>
+                <div class="content">현재 가입된 보험의 상태를 가입금액 대비 보장정도를 비교하여 진단해드려요.</div>
+                <div class="memo">(현재 서비스 준비 중입니다.)</div>
+            </li>
+            <li>
+                <div class="number">02</div>
+                <div class="img-box">
+                    <img src="../../static/img/home_section2_2.svg" alt="img2">
+                </div>
+                <div class="sub-title">필요 보험 비교</div>
+                <div class="content">보험진단표를 활용하여 필요한 보험을 권유연락없이 비교견적만 받아보세요.</div>
+            </li>
+            <li>
+                <div class="number">03</div>
+                <div class="img-box">
+                    <img src="../../static/img/home_section2_3.svg" alt="img3">
+                </div>
+                <div class="sub-title">블라인드 상담</div>
+                <div class="content">받아보신 비교견적서 중 원하시는 설계사와 블라인드 형식으로 상담해보세요.</div>
+            </li>
+        </ul>
     </div>
 </section>
 <section class="section section3">
+    <div class="title">보험영업전화 불편하시죠?</div>
+    <div class="content">GABOT은 영업전화 없이 <span></span>고객님의 비서가 되어드립니다</div>
+    <section class="section section3-1">
+        <div class="inner">
+            <ul>
+                <li>
+                    <div class="img-box"><img src="../../static/img/home_section3_1.svg" alt="섹션3_1"></div>
+                </li>
+                <li>
+                    <div class="subject">먼저 광고, 연락하지 않습니다.</div>
+                    <div class="text">GABOT은 고객님이 서비스를 이용하셔도 절대 먼저 연락드리지 않습니다. 사용 이후 광고성 전화나 메시지도 가지 않습니다. 고객님이 편하신 시간과 상황에 연락주시거나, 예약을 남겨주시면 됩니다.</div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="section section3-2">
+        <div class="inner">
+            <ul>
+                <li class="list1">
+                    <div class="subject">개인화 서비스를 제공합니다.</div>
+                    <div class="text">GABOT은 적합보험을 찾는 일에 집중합니다. 고객님만의 상황과 원하시는 조건에 맞춰 5~6개 정도의 맞춤 비교견적과 함께 요약된 설명을 해드립니다. 이후 고객님이 원하시는 방향으로 수정 가능합니다.</div>
 
+                </li>
+                <li class="list2">
+                    <div class="img-box"><img src="../../static/img/home_section3_2.svg" alt="섹션3_2"></div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="section section3-3">
+        <div class="inner">
+            <ul>
+                <li>
+                    <div class="img-box"><img src="../../static/img/home_section3_3.svg" alt="섹션3_3"></div>
+                </li>
+                <li>
+                    <div class="subject">정보를 거래하지 않습니다.</div>
+                    <div class="text">GABOT은 신상정보를 파악하기 어려운 최소한의 정보만을 가지고 설계하는 것을 지향하며, 고객님을 특정(mail 혹은 연락처) 할 수 있는 정보는 오직 GABOT에서만 관리하며 판매, 유출하지 않습니다.</div>
+                </li>
+            </ul>
+        </div>
+    </section>
 </section>
 <section class="section section4">
-    <div class="inner">
-        <ul>
-            <li class="left-side">
-                <h3>비교견적 서비스란?</h3>
-                <div class="box box1">
-                    <div class="box-inner">
-                        <div class="section4-img1"></div>
-                        <p>설계사들이 설계한 상품을<br>6개 정도 받을 수 있습니다.</p>
-                        <p>보험을 고객님만의 상황<br>조건에 맞춰 여러 종류로<br>설계된 상품들입니다.</p>
-                        <p>원하시는 방법으로<br>안내받을 수 있습니다.</p>
-                        <p>ex) 메일, 카톡, 문자 <br>(마음에드시면 연락해보세요)</p>
-                        <div class="button">
-                            <a href="compare/" class="hover-button">비교 견적 하러가기</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="center">
-
-            </li>
-            <li class="right-side">
-                <h3>내 보험 진단이란?</h3>
-                <div class="box box2">
-                    <div class="box-inner">
-                        <div class="section4-img2"></div>
-                        <p>현재 가입된 보험현황을<br>확인가능합니다.</p>
-                        <p>각 항목별로 가입된 보험을<br>연령대별 평균치와 비교하여<br>적정수준을 진단합니다.</p>
-                        <p>요청시에 솔루션을<br>상담해 드립니다.</p>
-                        <div class="button">
-                            <a href="myinsurance/" class="hover-button">내 보험 진단하기</a>
-                        </div>                        
-                    </div>
-                </div>
-            </li>
-        </ul>
+    <div class="box" class="hover-button" onclick="location.href='/select'; CountButton('compareCount')">
+        <div class="title">GABOT 시작하기</div>
+        <div class="content">지금까지 GAbot은 고객님들에게 {{ count|intcomma }}번 채용되었습니다</div>
+        <div class="img-box"><img src="../../static/img/home_section4_arrow.svg" alt="화살표"></div>
     </div>
 </section>
 <footer class="section">
     <div class="inner">
         <div class="left-side float-left">
-            <p>광고심의필 엠금융서비스 준법 22-02-28 유효기간(2022.02.23~2023.02.21)</p>
+            <p>엠금융서비스 준법 22-06-04(2022.06.18-2023.06.17)</p>
             <p>보험비서 GABOT | 대표 설계사 고유등록 번호 : 20150593100001</p>
             <p>엠금융서비스 보험대리점 | 협회등록번호 : 2009028021</p>
             <p>상호 : ㈜엠금융서비스 세종사업본부 계룡지점</p>
@@ -127,7 +131,7 @@
         <div class="right-side float-right">
             <p>상담 접수 : 주중 10:00 ~17:00 | 대표번호 : 010-7770-2696</p>
             <p>개인정보 책임 관리자 : 이동진</p>
-            <p>Copyright 엠금융서비스 세정사업본부 계룡지점. All rights Reserved</p>
+            <p>Copyright 엠금융서비스 세정사업본부. All rights Reserved</p>
             <!-- <a href="service/" target="_blank">[서비스 이용약관]</a> -->
             <a href="agreement/" target="_blank">[개인정보 처리방침]</a>
             <a href="company/" target="_blank">[대리-중개 보험회사]</a>

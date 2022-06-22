@@ -7,8 +7,6 @@ from datetime import datetime
 
 from django.views.decorators.csrf import csrf_exempt
 
-
-
 def HomeView(request):
 
     userCount = UserCount.objects.last()
@@ -40,6 +38,10 @@ def HomeView(request):
 
     homeObjectCount = len(Compare.objects.all()) + 10000  #10000개 추가
     return render(request, 'home.html', {'count': homeObjectCount})
+
+def SelectView(request):
+
+    return render(request, 'select.html')
 
 def AgreementView(request):
     

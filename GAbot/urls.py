@@ -1,11 +1,12 @@
 from django.contrib import admin
 from django.urls import path
-from home.views import HomeView, AgreementView, ServiceView, CompanyView, GetIPView, JsonDataView, GetTimeView
+from home.views import HomeView, SelectView ,AgreementView, ServiceView, CompanyView, GetIPView, JsonDataView, GetTimeView
 from gauser.views import CompareView, MyinsuranceView, MyinsuranceDirectView, CompareEndVIew
 
 urlpatterns = [
     path('', HomeView),
     path('admin/', admin.site.urls),
+    path('select/', SelectView),
     path('agreement/', AgreementView),
     path('service/', ServiceView),
     path('company/', CompanyView),
