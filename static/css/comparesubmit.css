@@ -1,0 +1,131 @@
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 130px;
+    background: #8B97FF;
+}
+header .img-box:hover{
+    cursor: pointer;
+}
+.section{
+    height: calc(100vh - 130px);
+    background: #D7E9FD;
+}
+.section .box1{
+    padding-top: 100px;
+}
+.section .box1 .inner-comparesubmit{
+    text-align: center;
+    padding: 30px 30px;
+    margin: 0 auto 80px auto;
+    max-width: 800px;
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 3px 3px 6px rgb(196, 196, 196);
+}
+.section .box1 h1{
+    font-size: 30px;
+    font-weight: bold;
+    color: #8B97FF;
+    margin-bottom: 50px;
+}
+.section .box1 p{
+    word-break: keep-all;
+    font-size: 20px;
+    font-weight: bold;
+    color: #7B7B7B;
+    margin-top: 50px;
+    line-height: 30px;
+}
+.section .box1 p:last-child{
+    margin-bottom: 50px;
+}
+.section-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section-button .box2{
+    background: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 450px;
+    height: 110px;
+    border: 1px solid #C9C9C9;
+    border-radius: 43px;
+    box-shadow: 0 7px 10px #c9c9c9;
+}
+.section-button .box2:hover{
+    cursor: pointer;
+}
+.section-button .box2 .title{
+    font-size: 40px;
+    font-weight: bold;
+    color: #7B7B7B;
+}
+.section-button .box2 .img-box{
+    position: absolute;
+    right: 30px;
+}
+
+
+
+
+
+
+@media (max-width: 600px) {
+    header{
+        height: 60px;
+    }
+    header .img-box img{
+        height: 35px;
+    }
+    .section{
+        height: calc(100vh - 60px);
+    }
+    .section .box1{
+        padding-top: 30px;
+    }
+    .section .box1 .inner-comparesubmit{
+        padding: 20px 20px;
+        margin: 0 20px 50px 20px;
+        border-radius: 10px;
+    }
+    .section .box1 h1{
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    .section .box1 p{
+        font-size: 15px;
+        margin-top: 30px;
+        line-height: 25px;
+    }
+    .section .box1 p:last-child{
+        margin-bottom: 30px;
+    }
+
+    .section-button .box2{
+        width: 250px;
+        height: 60px;
+        border-radius: 20px;
+    }
+    .section-button .box:hover{
+        cursor: pointer;
+    }
+    .section-button .box2 .title{
+        font-size: 20px;
+        font-weight: bold;
+        color: #7B7B7B;
+    }
+    .section-button .box2 .img-box{
+        right: 20px;
+    }
+    .section-button .box2 .img-box img{
+        height: 23px;
+    }
+}

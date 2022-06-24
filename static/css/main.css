@@ -1,20 +1,6 @@
 /* VARIABLE */
 :root {
     /*1: 배경색  2:중간글자색  3:검은색글자 4:노란색  5:회색글자 6:버튼색깔*/
-    /* --color1: linear-gradient(45deg, #2fd1dc, #0866cb);
-    --color2: #16B95D;
-    --color3: #000;
-    --color4: #F1D000;
-    --color5: rgba(0, 0, 0, 0.5); */
-    
-    /* --color1: linear-gradient(45deg, #0099ff, #0066ff);
-    --color2: #0066ff;
-    --color3: #000;
-    --color4: #F1D000;
-    --color5: rgba(0, 0, 0, 0.5);
-    --color6: #0066ff; */
-    /* --color1: linear-gradient(45deg, #54C87B, #80E0C9); */
-
     --color1: #5B8DEF;
     --color2: #16B95D;
     --color3: #000;

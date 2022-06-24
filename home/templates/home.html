@@ -3,8 +3,8 @@
 
 {% block header %}
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/home.css' %}">
-<script defer src="{% static 'js/home.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/home.css' %}?ver1">
+<script defer src="{% static 'js/home.js' %}?ver1"></script>
 {% endblock %}
 
 {% block contents %}
@@ -114,7 +114,7 @@
     </section>
 </section>
 <section class="section section4">
-    <div class="box" class="hover-button" onclick="location.href='/select'; CountButton('compareCount')">
+    <div class="box hover-button" onclick="location.href='/select'; CountButton('compareCount')">
         <div class="title">GABOT 시작하기</div>
         <div class="content">지금까지 GAbot은 고객님들에게 {{ count|intcomma }}번 채용되었습니다</div>
         <div class="img-box"><img src="../../static/img/home_section4_arrow.svg" alt="화살표"></div>

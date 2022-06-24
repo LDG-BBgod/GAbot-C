@@ -195,8 +195,8 @@
 @media (max-width: 600px) {
     .section1{
         min-height: 0;
-        height: 1800px;
-        background: linear-gradient(to bottom, #EEEAFC 50%, #D7E9FD 50%);
+        height: 1500px;
+        background: linear-gradient(to bottom, #EEEAFC 40%, #D7E9FD 40%);
     }
     .section1 .img-box{
         display: none;
@@ -211,12 +211,18 @@
     .section1 .home-box img{
         height: 40px;
     }
+    .section1 ul li:first-child{
+        height: 600px;
+    }
     .section1 ul li{
         height: 900px;
     }
     .section1 ul li .logo-box{
         display: block;
         padding-top: 50px;
+    }
+    .section1 ul li .logo-box img{
+        height: 70px;
     }
     .section1 ul li .title{
         margin-top: 30px;
@@ -231,7 +237,7 @@
     .section1 ul li .content{
     }
     .section1 ul li .content1{
-        margin-top: 180px;
+        margin-top: 40px;
     }
     .section1 ul li .text1{
     }
@@ -246,7 +252,7 @@
     .section1 ul li .box:hover{
     }
     .section1 ul li .box:nth-child(5){
-        margin-top: 130px;
+        margin-top: 40px;
     }
     .section1 ul li .box .box-content{
         font-size: 18px;
