@@ -33,29 +33,29 @@ function scrollToSide() {
 
 
 //시간체크//
-let loadTime
-window.addEventListener('pageshow',function(){
-    loadTime = new Date().getTime() / 1000
-})
+// let loadTime
+// window.addEventListener('pageshow',function(){
+//     loadTime = new Date().getTime() / 1000
+// })
 
-window.addEventListener("unload", function() {
-    const unloadTime = new Date().getTime() / 1000
-    let timeData = new FormData()
-    timeData.append('data', unloadTime - loadTime)
-    navigator.sendBeacon("gettime/", timeData)
-});
-
-//시간체크 2//
-// TimeMe.initialize({
-//     currentPageName: "my-home-page", // current page
-//     idleTimeoutInSeconds: 30 // seconds
+// window.addEventListener("unload", function() {
+//     const unloadTime = new Date().getTime() / 1000
+//     let timeData = new FormData()
+//     timeData.append('data', unloadTime - loadTime)
+//     navigator.sendBeacon("gettime/", timeData)
 // });
 
-// window.onbeforeunload = function (event) {
-//     xmlhttp=new XMLHttpRequest();
-//     xmlhttp.open("POST","/xmldata/", true);
-//     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//     let timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
-//     xmlhttp.send(timeSpentOnPage);
-// }
+// 시간체크 2 //
+TimeMe.initialize({
+    currentPageName: "my-home-page", // current page
+    idleTimeoutInSeconds: 30 // seconds
+});
+
+window.onbeforeunload = function (event) {
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.open("POST","/xmldata/", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    let timeSpentOnPage = TimeMe.getTimeOnCurrentPageInSeconds();
+    xmlhttp.send(timeSpentOnPage);
+}
 
