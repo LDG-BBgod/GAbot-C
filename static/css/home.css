@@ -612,18 +612,29 @@ footer .right-side a{
     /******** section1 ********/
 
     /******** section2 ********/
+
     .section2{
-        overflow: hidden;
+        height: 1600px;
     }
     .section2 .inner{
-        height: 600px;
+        position: sticky;
+        top: 60px;
+        height: 100vh;
         padding: 0;
+        overflow: hidden;
     }
     .section2 .title{
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        width: 100vw;
+        transform: translate(-50%, 0);
         padding-top: 30px;
         font-size: 18px;
     }
     .section2 ul{
+        position: absolute;
+        top: 40px;
         margin-left: 0;
         padding-left: calc(50vw - 125px);
         margin-top: 50px;
@@ -631,19 +642,23 @@ footer .right-side a{
         grid-template-columns: repeat(3, 1fr);
     }
     .section2 li{
-        margin-right: calc(50vw - 150px);
-        padding: 20px;
-        padding-bottom: 60px;
+        justify-content: center;
+        margin-right: 70PX;
+        padding: 0 20px;
         width: 210px;
-        height: 400px;
+        height: 70vh;
         border-radius: 30px;
         box-shadow: 1px 2px 15px #dedede;
     }
     .section2 li .number{
+        margin-top: 0px;
         font-size: 30px;
     }
     .section2 li .img-box{
-        margin-top: 30px;
+        margin-top: 5vh;
+    }
+    .section2 li .img-box img{
+        height: 15vh;
     }
     .section2 li .sub-title{
         margin-top: 24px;
@@ -669,6 +684,7 @@ footer .right-side a{
         height: 500px;
     }
     .section3 .title{
+        padding-top: 0;
         font-size: 14px;
     }
     .section3 .content{

@@ -125,3 +125,14 @@ def GetTimeView(request):
     gaUser.save()
     
     return HttpResponse()
+
+@csrf_exempt
+def xmldataView(request):
+
+    stayTime = list(request.POST)[0]
+    userIP = request.session.get('user')
+    gaUser = Home.objects.get(userIP=userIP) 
+    gaUser.stayTime2 = gaUser.stayTime2 + round(float(stayTime), 3)
+    gaUser.save()
+
+    return HttpResponse()

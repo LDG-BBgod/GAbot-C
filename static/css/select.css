@@ -195,8 +195,8 @@
 @media (max-width: 600px) {
     .section1{
         min-height: 0;
-        height: 1500px;
-        background: linear-gradient(to bottom, #EEEAFC 40%, #D7E9FD 40%);
+        height: 1400px;
+        background: linear-gradient(to bottom, #D7E9FD 60%, #EEEAFC 60%);
     }
     .section1 .img-box{
         display: none;
@@ -204,7 +204,9 @@
     .section1 .img-box img{
     }
     .section1 ul{
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
     .section1 .home-box{
     }
@@ -213,6 +215,10 @@
     }
     .section1 ul li:first-child{
         height: 600px;
+        order: 2;
+    }
+    .section1 ul li:last-child{
+        order: 1;
     }
     .section1 ul li{
         height: 900px;
@@ -232,7 +238,7 @@
         margin-top: 40px;
     }
     .section1 ul li .li-img-box img{
-        height: 150px;
+        height: 100px;
     }
     .section1 ul li .content{
     }

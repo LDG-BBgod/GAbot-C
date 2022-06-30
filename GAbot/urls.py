@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from home.views import HomeView, SelectView ,AgreementView, ServiceView, CompanyView, GetIPView, JsonDataView, GetTimeView
+from home.views import HomeView, SelectView ,AgreementView, ServiceView, CompanyView, GetIPView, JsonDataView, GetTimeView, xmldataView
 from gauser.views import CompareView, MyinsuranceView, MyinsuranceDirectView, CompareEndVIew
 
 urlpatterns = [
@@ -17,4 +17,5 @@ urlpatterns = [
     path('jsondata/', JsonDataView),
     path('getip/', GetIPView),
     path('gettime/', GetTimeView),
+    path('xmldata/', xmldataView),
 ]
