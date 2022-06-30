@@ -152,7 +152,7 @@
         loadTime = new Date().getTime() / 1000
     })
 
-    window.addEventListener("beforeunload", function() {
+    window.addEventListener("unload", function() {
         const unloadTime = new Date().getTime() / 1000
         let timeData = new FormData()
         timeData.append('data', unloadTime - loadTime)
