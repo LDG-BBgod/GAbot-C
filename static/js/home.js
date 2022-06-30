@@ -133,7 +133,6 @@
 
     function scrollToSide() {
         var currentScrollPos = (window.pageYOffset - 700) * 0.7
-        console.log(currentScrollPos)
         if (currentScrollPos <= 0) {
             dragBox.style.marginLeft =  0 + 'px'
         }
