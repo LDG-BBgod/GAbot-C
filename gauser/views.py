@@ -1,12 +1,16 @@
 from django.views.generic import TemplateView
 from django.views.generic.edit import FormView
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
 from .decorators import session_required
 from .forms import CompareForm, MyinsuranceForm
+from home.models import Home
+from django.utils.dateformat import DateFormat
+from datetime import datetime
 
-@method_decorator(session_required, name='dispatch')
+
 class CompareView(FormView):
+    print('init VIew')
     template_name = 'compare.html'
     form_class = CompareForm
     success_url = 'submit/'
@@ -16,9 +20,33 @@ class CompareView(FormView):
         kw.update({
             'request': self.request
         })
+
         return kw
 
-@method_decorator(session_required, name='dispatch')
+    def get_context_data(self, **kwargs):
+    
+        def get_client_ip(request):
+            x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+            if x_forwarded_for:
+                ip = x_forwarded_for.split(',')[0]
+            else:
+                ip = request.META.get('REMOTE_ADDR')
+            return ip
+        try:
+            userIP = Home.objects.get(userIP = get_client_ip(self.request))
+            
+        except Home.DoesNotExist:
+            registerDate = DateFormat(datetime.now()).format('20y.m.d / h:i a')
+            userIP = Home(userIP = get_client_ip(self.request))
+            userIP.registerDate = registerDate
+            userIP.refreshCount = 1
+            userIP.compareCount = 1
+            userIP.diagnosisCount = 1
+            userIP.save()
+            self.request.session['user'] = userIP.userIP
+
+        return super().get_context_data(**kwargs)
+
 class CompareEndVIew(TemplateView):
     template_name = 'comparesubmit.html'
         

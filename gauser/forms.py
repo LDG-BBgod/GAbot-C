@@ -67,11 +67,16 @@ class CompareForm(forms.Form):
     job = forms.CharField(max_length=64, label='직업')
     region = forms.CharField(max_length=64, label='거주지')
 
+
+
     def __init__(self, request, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.request = request
 
+    
+
     def clean(self):
+
         cleaned_data = super().clean()
         userIP = self.request.session.get('user')
         method = cleaned_data.get('method')

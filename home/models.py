@@ -4,7 +4,6 @@ from django.db import models
 class Home(models.Model):
     userIP = models.CharField(max_length=64, verbose_name='유저IP')
     stayTime = models.FloatField(verbose_name='홈페이지 채류시간',default='0')
-    stayTime2 = models.FloatField(verbose_name='홈페이지 채류시간2',default='0')
     refreshCount = models.IntegerField(verbose_name='홈페이지 새로고침', default='0')
     compareCount = models.IntegerField(verbose_name='보험견적비교', default='0')
     diagnosisCount = models.IntegerField(verbose_name='보험견적비교2', default='0')
@@ -16,6 +15,8 @@ class Home(models.Model):
     familyDiseaseCount = models.IntegerField(verbose_name='가족력', default='0')
     birthCount = models.IntegerField(verbose_name='개인정보', default='0')
     registerDate = models.CharField(max_length=64, verbose_name='등록시간', default='0')
+    id = models.BigAutoField(verbose_name="Post ID", primary_key=True)
+
 
     def __str__(self):
         return self.userIP
