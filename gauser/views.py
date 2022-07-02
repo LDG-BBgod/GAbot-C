@@ -10,7 +10,6 @@ from datetime import datetime
 
 
 class CompareView(FormView):
-    print('init VIew')
     template_name = 'compare.html'
     form_class = CompareForm
     success_url = 'submit/'
