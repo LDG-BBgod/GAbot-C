@@ -3,10 +3,13 @@ from django.views.generic.edit import FormView
 from django.shortcuts import redirect, render
 from django.utils.decorators import method_decorator
 from .decorators import session_required
-from .forms import CompareForm, MyinsuranceForm
+from .forms import CompareForm, MyinsuranceForm, ConsultingForm
+from .models import Consulting
 from home.models import Home
 from django.utils.dateformat import DateFormat
 from datetime import datetime
+from django.http import HttpResponse
+from django.core import serializers
 
 
 class CompareView(FormView):
@@ -38,17 +41,34 @@ class CompareView(FormView):
             registerDate = DateFormat(datetime.now()).format('20y.m.d / h:i a')
             userIP = Home(userIP = get_client_ip(self.request))
             userIP.registerDate = registerDate
-            userIP.refreshCount = 1
+            userIP.manageCount = 1
             userIP.compareCount = 1
-            userIP.diagnosisCount = 1
             userIP.save()
             self.request.session['user'] = userIP.userIP
 
         return super().get_context_data(**kwargs)
 
-class CompareEndVIew(TemplateView):
-    template_name = 'comparesubmit.html'
-        
+def CompareEndVIew(request):
+    userIP = request.session.get('user')
+    gaUser = Home.objects.get(userIP=userIP)
+    gaUser.compareSubmitCount += 1
+    gaUser.save()
+
+    return render(request, 'comparesubmit.html')
+    
+@method_decorator(session_required, name='dispatch')
+class ConsultingView(FormView):
+    template_name = 'consulting.html'
+    form_class = ConsultingForm
+    success_url = '/'
+
+    def get_form_kwargs(self, **kwargs):
+        kw = super().get_form_kwargs(**kwargs)
+        kw.update({
+            'request': self.request
+        })
+        return kw
+
 @method_decorator(session_required, name='dispatch')
 class MyinsuranceView(FormView):
     template_name = 'myinsurance.html'
@@ -61,6 +81,7 @@ class MyinsuranceView(FormView):
             'request': self.request
         })
         return kw
+
 @method_decorator(session_required, name='dispatch')
 class MyinsuranceDirectView(FormView):
     template_name = 'myinsurancedirect.html'
@@ -73,3 +94,11 @@ class MyinsuranceDirectView(FormView):
             'request': self.request
         })
         return kw 
+
+
+def ConsultingDataView(request):
+    data = request.GET.get('data')
+    consultingObject = Consulting.objects.filter(consultingDate=data)
+    responseData = serializers.serialize('json', consultingObject)
+
+    return HttpResponse(responseData, content_type="text/json-comment-filtered")

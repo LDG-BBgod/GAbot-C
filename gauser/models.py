@@ -35,3 +35,18 @@ class Myinsurance(models.Model):
         db_table = 'gauser_myinsurance'
         verbose_name = '내보험'
         verbose_name_plural = '내보험'
+
+
+
+class Consulting(models.Model):
+    userIP = models.CharField(max_length=64, verbose_name='유저IP', default='유저IP')
+    registerDate = models.CharField(max_length=64, verbose_name='등록시간', default='0')
+    selectType = models.CharField(max_length=64, verbose_name='연락수단', blank=True, null=True)
+    phone = models.CharField(max_length=64, verbose_name='연락처', blank=True, null=True)
+    consultingDate = models.CharField(max_length=64, verbose_name='상담날짜', blank=True, null=True)
+    consultingTime = models.CharField(max_length=64, verbose_name='상담시간', blank=True, null=True)
+
+    class Meta:
+        db_table = 'gauser_consulting'
+        verbose_name = '상담예약'
+        verbose_name_plural = '상담예약'

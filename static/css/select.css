@@ -1,109 +1,113 @@
 .section1{
-    width: 100vw;
-    min-height: 100vh;
-    background: linear-gradient(to right, #EEEAFC 50%, #D7E9FD 50%);
-}
-.section1 .img-box{
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    z-index: 1;
-} 
-.section1 .img-box img{
-    z-index: 1;
+
 }
 .section1 .home-box{
     position: absolute;
     top: 30px;
     left: 30px;
-    z-index: 3;
+    z-index: 2;
 }
 .section1 .home-box img{
     height: 60px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 10px #D0D9E3;
 }
 .section1 ul{
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 .section1 ul li{
+    height: 100vh;
+}
+.section1 ul li:nth-child(1){
+    background: #EAF4FF;
+}
+.section1 ul li:nth-child(2){
+    background: #D7E9FD;
+}
+.section1 ul li:nth-child(3){
+    background: #EEEAFC;
+}
+.section1 ul li{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    z-index: 2;
-}
-.section1 ul li .logo-box{
-    display: none;
 }
 .section1 ul li .title{
-    margin-top: 100px;
-    font-size: 40px;
+    margin-top: 120px;
+    font-size: 35px;
     font-weight: bold;
     color: #000;
 }
 .section1 ul li .li-img-box{
     margin-top: 50px;
 }
+.section1 ul li .li-img-box img{
+    height: 180px;
+}
+
 .section1 ul li .content{
     text-align: center;
     margin-top: 30px;
     font-size: 20px;
     font-weight: bold;
     color: #707070;
-    line-height: 30px;
+    line-height: 28px;
 }
-.section1 ul li .content1{
-    margin-top: 200px;
+.section1 ul li .content:nth-child(3){
+    margin-top: 50px;
 }
-.section1 ul li .text1{
+.section1 ul li .small-text{
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 11px;
     color: #707070;
     line-height: 15px;
 }
+.section1 ul li .box-position{
+    position: absolute;
+    bottom: 130px;
+}
 .section1 ul li .box{
-    margin-top: 50px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 400px;
-    height: 100px;
+    width: 350px;
+    height: 80px;
     background-color: #fff;
     border: 1px solid #C9C9C9;
-    border-radius: 43px;
+    border-radius: 30px;
     box-shadow: 0 5px 10px #c6c6c6;
 }
 .section1 ul li .box:hover{
     cursor: pointer;
 }
-.section1 ul li .box:nth-child(5){
-    margin-top: 160px;
-}
 .section1 ul li .box .box-content{
-    font-size: 34px;
+    font-size: 30px;
     font-weight: bold;
     color: #5B8DEF;
 }
-.section1 ul li .box .text2{
+.section1 ul li .box .button-text{
     position: absolute;
-    top: 73px;
+    top: 58px;
     font-size: 12px;
-    color: #B1B1B1;
-}
-.section1 ul li .box .box-content1{
     color: #B1B1B1;
 }
 .section1 ul li .box .img-box2{
     position: absolute;
-    right: 30px;
+    right: 20px;
 }
-.section1 ul li .text3{
-    margin-top: 10px;
-    font-size: 23px;
+.section1 ul li .box .img-box2 img{
+    height: 30px;
+}
+.section1 ul li .bottom-text{
+    position: absolute;
+    bottom: 100px;
+    font-size: 15px;
     color: #B1B1B1;
 }
 
@@ -113,72 +117,47 @@
 
 
 
-@media (max-width: 1000px) {
-    .section1{
-    }
-    .section1 .img-box{
-    } 
-    .section1 .img-box img{
-        height: 400xp;
-        width: 400px;
-    }
-    .section1 ul{
-    }
-    .section1 ul li{
-    }
-    .section1 ul li .logo-box{
-        display: none;
-    }
-    .section1 .home-box{
-    }
+@media (max-width: 1100px) {
     .section1 .home-box img{
         height: 50px;
     }
     .section1 ul li .title{
         font-size: 25px;
     }
-    .section1 ul li .li-img-box{
-        margin-top: 40px;
-    }
     .section1 ul li .li-img-box img{
-        height:  130px;
-    }
+        height: 100px;
+    }    
     .section1 ul li .content{
-        font-size: 18px;
-        line-height: 25px;
+        font-size: 15px;
+        line-height: 20px;
     }
-    .section1 ul li .content1{
-        margin-top: 150px;
+    .section1 ul li .content:nth-child(3){
+        margin-top: 120px;
     }
-    .section1 ul li .text1{
+    .section1 ul li .small-text{
+        font-size: 10px;
     }
     .section1 ul li .box{
-        width: 250px;
-        height: 60px;
-        border-radius: 25px;
-    }
-    .section1 ul li .box:hover{
-    }
-    .section1 ul li .box:nth-child(5){
-        margin-top: 180px;
+        width: 200px;
+        height: 50px;
+        border-radius: 22px;
     }
     .section1 ul li .box .box-content{
-        font-size: 22px;
+        font-size: 18px;
     }
-    .section1 ul li .box .text2{
-        top: 42px;
-        font-size: 11px;
-    }
-    .section1 ul li .box .box-content1{
+    .section1 ul li .box .button-text{
+        top: 35px;
+        font-size: 10px;
     }
     .section1 ul li .box .img-box2{
-        right: 20px;
+        right: 10px;
     }
     .section1 ul li .box .img-box2 img{
-        height: 25px;
+        height: 20px;
     }
-    .section1 ul li .text3{
-        font-size: 14px;
+    .section1 ul li .bottom-text{
+        bottom: 110px;
+        font-size: 12px;
     }
 }
 
@@ -194,90 +173,75 @@
 
 @media (max-width: 600px) {
     .section1{
-        min-height: 0;
-        height: 1400px;
-        background: linear-gradient(to bottom, #D7E9FD 60%, #EEEAFC 60%);
+
     }
-    .section1 .img-box{
-        display: none;
-    }
-    .section1 .img-box img{
+    .section1 .home-box img{
+        height: 35px;
     }
     .section1 ul{
         display: flex;
         flex-direction: column;
-        align-items: center;
-    }
-    .section1 .home-box{
-    }
-    .section1 .home-box img{
-        height: 40px;
-    }
-    .section1 ul li:first-child{
-        height: 600px;
-        order: 2;
-    }
-    .section1 ul li:last-child{
-        order: 1;
     }
     .section1 ul li{
-        height: 900px;
+        height: 750px;
     }
-    .section1 ul li .logo-box{
-        display: block;
-        padding-top: 50px;
+    .section1 ul li:nth-child(1){
+        height: 600px;
+        order: 3;
     }
-    .section1 ul li .logo-box img{
-        height: 70px;
+    .section1 ul li:nth-child(2){
+        order: 1;
+    }
+    .section1 ul li:nth-child(3){        
+        order: 2;
     }
     .section1 ul li .title{
-        margin-top: 30px;
-        font-size: 30px;
+        margin-top: 50px;
+        font-size: 25px;
     }
     .section1 ul li .li-img-box{
-        margin-top: 40px;
+        margin-top: 50px;
     }
     .section1 ul li .li-img-box img{
-        height: 100px;
+        height: 150px;
     }
+    
     .section1 ul li .content{
-    }
-    .section1 ul li .content1{
         margin-top: 40px;
+        font-size: 17px;
+        line-height: 24px;
     }
-    .section1 ul li .text1{
+    .section1 ul li .content:nth-child(3){
+        margin-top: 30px;
+    }
+    .section1 ul li .small-text{
+        margin-top: 5px;
+        font-size: 10px;
+    }
+    .section1 ul li .box-position{
+        position: absolute;
+        bottom: 50px;
     }
     .section1 ul li .box{
-        margin-top: 30px;
-        width: 200px;
-        height: 55px;
-        background-color: #fff;
-        border: 1px solid #C9C9C9;
-        border-radius: 21px;
-    }
-    .section1 ul li .box:hover{
-    }
-    .section1 ul li .box:nth-child(5){
-        margin-top: 40px;
+        width: 250px;
+        height: 60px;
+        border-radius: 22px;
     }
     .section1 ul li .box .box-content{
         font-size: 18px;
     }
-    .section1 ul li .box .text2{
-        top: 40px;
+    .section1 ul li .box .button-text{
+        top: 42px;
         font-size: 10px;
-        color: #B1B1B1;
-    }
-    .section1 ul li .box .box-content1{
-        color: #B1B1B1;
     }
     .section1 ul li .box .img-box2{
-        right: 15px;
+        right: 20px;
     }
     .section1 ul li .box .img-box2 img{
         height: 20px;
     }
-    .section1 ul li .text3{
+    .section1 ul li .bottom-text{
+        bottom: 30px;
         font-size: 12px;
     }
 }

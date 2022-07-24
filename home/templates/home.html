@@ -4,7 +4,6 @@
 {% block header %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/home.css' %}?ver=3">
-<script defer src="{% static 'js/timeme.js' %}?ver=3"></script>
 <script defer src="{% static 'js/home.js' %}?ver=3"></script>
 {% endblock %}
 
@@ -17,7 +16,7 @@
             <a class="hover-button" href="/"><img src="../../static/img/home_logo.svg" alt="logo"></a>
         </div>
         <ul class="menu float-right">
-            <li class="hover-button" onclick="location.href='/select'; CountButton('compareCount')">보험 관리 시작하기</li>
+            <li class="hover-button" onclick="location.href='/select'; CountButton('manageCount')">보험 관리 시작하기</li>
             <li style="display: none;"><a class="hover-button" href="#"><img src="../../static/img/home_menubar.svg" alt="menubar"></a></li>
         </ul>
     </div>
@@ -116,9 +115,9 @@
     </section>
 </section>
 <section class="section section4">
-    <div class="box hover-button" onclick="location.href='/select'; CountButton('compareCount')">
+    <div class="box hover-button" onclick="location.href='/select'; CountButton('manageCount')">
         <div class="title">GABOT 시작하기</div>
-        <div class="content">지금까지 GAbot은 고객님들에게 {{ count|intcomma }}번 채용되었습니다</div>
+        <!-- <div class="content">지금까지 GAbot은 고객님들에게 {{ count|intcomma }}번 채용되었습니다</div> -->
         <div class="img-box"><img src="../../static/img/home_section4_arrow.svg" alt="화살표"></div>
     </div>
 </section>

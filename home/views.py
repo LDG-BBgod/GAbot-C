@@ -79,8 +79,8 @@ def JsonDataView(request):
     data = request.GET.get('data')
     userIP = request.session.get('user')
     gaUser = Home.objects.get(userIP=userIP)
-    if data == 'refreshCount':
-        gaUser.refreshCount += 1
+    if data == 'manageCount':
+        gaUser.manageCount += 1
         gaUser.save()
     elif data == 'compareCount':
         gaUser.compareCount += 1
@@ -88,26 +88,8 @@ def JsonDataView(request):
     elif data == 'diagnosisCount':
         gaUser.diagnosisCount += 1
         gaUser.save()
-    elif data == 'startCount':
-        gaUser.startCount += 1
-        gaUser.save()
-    elif data == 'methodCount':
-        gaUser.methodCount += 1
-        gaUser.save()
-    elif data == 'concernCount':
-        gaUser.concernCount += 1
-        gaUser.save()
-    elif data == 'priceCount':
-        gaUser.priceCount += 1
-        gaUser.save()
-    elif data == 'hospitalCount':
-        gaUser.hospitalCount += 1
-        gaUser.save()
-    elif data == 'familyDiseaseCount':
-        gaUser.familyDiseaseCount += 1
-        gaUser.save()
-    elif data == 'birthCount':
-        gaUser.birthCount += 1
+    elif data == 'consultingCount':
+        gaUser.consultingCount += 1
         gaUser.save()
     else:
         print('JSON DATA 알수없는 값 받음')
@@ -117,23 +99,28 @@ def JsonDataView(request):
     
 @csrf_exempt
 def GetTimeView(request):
-
+    dataType = request.GET.get('dataType')
     stayTime = request.GET.get('data')
     print(stayTime)
     userIP = request.session.get('user')
     gaUser = Home.objects.get(userIP=userIP) 
-    gaUser.stayTime = gaUser.stayTime + float(stayTime)
-    gaUser.save()
+
+    if dataType == 'homeStayTime':
+        gaUser.homeStayTime = gaUser.homeStayTime + float(stayTime)
+        gaUser.save()
+    elif dataType == 'selectStayTime':
+        gaUser.selectStayTime = gaUser.selectStayTime + float(stayTime)
+        gaUser.save()
+    elif dataType == 'compareStayTime':
+        gaUser.compareStayTime = gaUser.compareStayTime + float(stayTime)
+        gaUser.save()
+    elif dataType == 'consultingStayTime':
+        gaUser.consultingStayTime = gaUser.consultingStayTime + float(stayTime)
+        gaUser.save()
+    elif dataType == 'diagnosisStayTime':
+        gaUser.diagnosisStayTime = gaUser.diagnosisStayTime + float(stayTime)
+        gaUser.save()
+    else:
+        print('JSON DATA 알수없는 값 받음')
     
     return HttpResponse()
-
-@csrf_exempt
-def xmldataView(request):
-
-    stayTime = list(request.POST)[0]
-    userIP = request.session.get('user')
-    gaUser = Home.objects.get(userIP=userIP) 
-    gaUser.stayTime2 = gaUser.stayTime2 + round(float(stayTime), 3)
-    gaUser.save()
-
-    return HttpResponse()   

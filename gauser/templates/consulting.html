@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block header %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/consulting.css' %}">
+<script defer src="{% static 'js/consulting.js' %}"></script>
+{% endblock %}
+
+{% block contents %}
+<section class="section1">
+    <div class="logo-box"><img src="../../static/img/consulting_logo.svg" alt="로고"></div>
+    <div class="content-box">
+        <div class="header-box">
+            <ul>
+                <li id="list0">
+                    <div class="date date0"></div>
+                    <div class="day day0"></div>
+                </li>
+                <li id="list1">
+                    <div class="date date1"></div>
+                    <div class="day day1"></div>
+                </li>
+                <li id="list2">
+                    <div class="date date2"></div>
+                    <div class="day day2"></div>
+                </li>
+                <li id="list3">
+                    <div class="date date3"></div>
+                    <div class="day day3"></div>
+                </li>
+                <li id="list4">
+                    <div class="date date4"></div>
+                    <div class="day day4"></div>
+                </li>
+                <li id="list5">
+                    <div class="date date5"></div>
+                    <div class="day day5"></div>
+                </li>
+                <li id="list6">
+                    <div class="date date6"></div>
+                    <div class="day day6"></div>
+                </li>
+            </ul>          
+        </div>
+        <div class="inner-box">
+            <div class="time-box">
+                <div class="text">날짜를 선택해 주세요</div>
+                <ul class="time-list" style="display: none;">
+                    <li id="time-list0">10:00~11:00<br><span id="time-list0-span" style="display: none;">예약됨</span></li>
+                    <li id="time-list1">11:00~12:00<br><span id="time-list1-span" style="display: none;">예약됨</span></li>
+                    <li id="time-list2">12:00~13:00<br><span id="time-list2-span" style="display: none;">예약됨</span></li>
+                    <li id="time-list3">13:00~14:00<br><span id="time-list3-span" style="display: none;">예약됨</span></li>
+                    <li id="time-list4">14:00~15:00<br><span id="time-list4-span" style="display: none;">예약됨</span></li>
+                    <li id="time-list5">15:00~16:00<br><span id="time-list5-span" style="display: none;">예약됨</span></li>
+                    <li id="time-list6">16:00~17:00<br><span id="time-list6-span" style="display: none;">예약됨</span></li>
+                    <li id="time-list7">17:00~18:00<br><span id="time-list7-span" style="display: none;">예약됨</span></li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <div class="button-tool selectType-list0">전화</div>
+                <div class="button-tool selectType-list1">카톡</div>
+                <div class="text-box">
+                    <input id="input-selectType" type="text" placeholder="상담 수단을 선택해 주세요">
+                    <div class="input-bottom-text">상담 이후 광고, 영업성 연락은 절대 가지 않습니다!</div>
+                </div>                
+                <div class="button-submit">
+                    <div class="box-content" id="submitButton">신청하기</div>
+                    <div class="arrow-box"><img src="../../static/img/home_section4_arrow.svg" alt="화살표"></div>
+                </div>
+            </div>
+            <div class="error"></div>
+        </div>
+    </div>
+</section>
+<div class="section-form" style="display: none;">
+    <form action="" method="post" name="form">
+        {% csrf_token %}
+        {% for field in form %}
+        <input class="input-text {{ field.name }}" type="{{ field.field.widget.input_type }}" id="form_{{ field.id_for_label }}" placeholder="{{ field.label }}" name="{{ field.name }}">
+        {% endfor %}
+        <button type="submit">회원가입</button>
+    </form>
+</div>
+
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script> 
+<script type="text/javascript"> 
+    var _nasa={};
+    if(window.wcs) _nasa["cnv"] = wcs.cnv("4","10"); 
+</script> 
+<script type="text/javascript"> 
+    if (!wcs_add) var wcs_add={};
+    wcs_add["wa"] = "s_31434e58cf28";
+    if (!_nasa) var _nasa={};
+    if(window.wcs){
+        wcs.inflow("gabot.co.kr");
+        wcs_do(_nasa);
+    }
+</script>
+{% endblock %}

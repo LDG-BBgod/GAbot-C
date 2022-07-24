@@ -3,7 +3,7 @@ from .models import Home, UserCount
 
 class HomeAdmin(admin.ModelAdmin):
 
-    list_display = ('id', 'userIP', 'stayTime', 'registerDate')
+    list_display = ('id', 'userIP', 'homeStayTime', 'registerDate')
     
 admin.site.register(Home, HomeAdmin)
 

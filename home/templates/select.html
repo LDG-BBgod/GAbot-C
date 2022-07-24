@@ -3,37 +3,54 @@
 {% block header %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'css/select.css' %}?ver=3">
+<script defer src="{% static 'js/select.js' %}?ver=3"></script>
 {% endblock %}
 
 {% block contents %}
 <section class="section section1">
-    <div class="img-box"><img src="../../static/img/select_background.svg" alt="배경이미지"></div>
     <a class="home-box" href="/"><img src="../../static/img/select_homebutton.svg" alt="홈버튼"></a>
     <ul>
         <li>
-            <div class="logo-box"><img src="../../static/img/select_section1_logo.svg" alt="로고"></div>
             <div class="title">내 보험 진단</div>
             <div class="li-img-box"><img src="../../static/img/select_section1_1.svg" alt="이미지"></div>
-            <div class="content content1">현재 서비스 준비중입니다.</div>
-            <div class="box">
-                <div class="box-content box-content1">내 보험 진단하기</div>
-                <div class="img-box2"><img src="../../static/img/home_section4_arrow.svg" alt="arrow"></div>
+            <div class="content">현재 서비스 준비중입니다.</div>
+            <div class="box-position">
+                <div class="box">
+                    <div class="box-content">내 보험 진단하기</div>
+                    <div class="img-box2"><img src="../../static/img/home_section4_arrow.svg" alt="arrow"></div>
+                </div>
             </div>
+            <div class="bottom-text">영업, 광고 연락은 절대 가지 않습니다!</div>
         </li>
         <li>
-            <div class="logo-box"><img src="../../static/img/select_section2_logo.svg" alt="로고"></div>
+            <div class="title">블라인드 상담</div>
+            <div class="li-img-box"><img src="../../static/img/home_section2_3.svg" alt="이미지"></div>
+            <div class="content">카톡 or 전화로<br>상담이 가능합니다.</div>
+            <div class="content">상담후에 설계사로부터 영업<br>연락이 절대 가지 않습니다.</div>
+            <div class="content">원하시는 시간대에<br>상담을 예약해 보세요.</div>
+            <div class="box-position">
+                <div class="box" class="hover-button" onclick="location.href='/consulting'; CountButton('consultingCount')">
+                    <div class="box-content">블라인드 상담하기</div>
+                    <div class="img-box2"><img src="../../static/img/home_section4_arrow.svg" alt="arrow"></div>
+                </div>
+            </div>
+            <div class="bottom-text">영업, 광고 연락은 절대 가지 않습니다!</div>
+        </li>
+        <li>
             <div class="title">비교견적 서비스</div>
             <div class="li-img-box"><img src="../../static/img/select_section1_2.svg" alt="이미지"></div>
             <div class="content">설문에 따라 견적서를 3~6개<br>정도 받을 수 있습니다.</div>
             <div class="content">보험을 고객님만의 상황<br>조건에 맞춰 여러 종류로<br>설계된 상품들입니다.</div>
             <div class="content">원하시는 방법으로<br>안내받을 수 있습니다.</div>
-            <div class="text1">ex) 메일, 카톡, 문자<br>(마음에드시면 연락해보세요)</div>
-            <div class="box" class="hover-button" onclick="location.href='/compare'; CountButton('diagnosisCount')">
-                <div class="box-content">비교 견적 하기</div>
-                <div class="text2">예상 소요시간 1분</div>
-                <div class="img-box2"><img src="../../static/img/home_section4_arrow.svg" alt="arrow"></div>
+            <div class="small-text">ex) 메일, 카톡, 문자<br>(마음에드시면 연락해보세요)</div>
+            <div class="box-position">
+                <div class="box" class="hover-button" onclick="location.href='/compare'; CountButton('compareCount')">
+                    <div class="box-content">비교 견적 하기</div>
+                    <div class="button-text">예상 소요시간 1분</div>
+                    <div class="img-box2"><img src="../../static/img/home_section4_arrow.svg" alt="arrow"></div>
+                </div>
             </div>
-            <div class="text3">영업, 광고 연락은 절대 가지 않습니다!</div>
+            <div class="bottom-text">영업, 광고 연락은 절대 가지 않습니다!</div>
         </li>
     </ul>
 </section>
