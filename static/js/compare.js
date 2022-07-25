@@ -73,7 +73,16 @@ function nextButton() {
         $('html, body').animate({scrollTop : $(".section-birth").offset().top}, 300);
     }
 
-    else { 
+    else {
+        $.ajax({
+            type: 'GET',
+            url: '/sendmessage/',
+            dataType: 'json',
+            async: false,
+            data: {
+                'dataType': 'compare',
+            }
+        })
         var radioModelArr = ['method', 'hospital', 'gender']
         var textModelArr = ['contact', 'price', 'hospitalDisease', 'disease', 'familyDiseaseEtc', 'birth', 'job']
         var checkboxModelArr = ['concern', 'hospitalTreatment', 'familyDisease']  

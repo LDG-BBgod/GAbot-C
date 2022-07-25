@@ -1342,9 +1342,9 @@ section .page{
         margin-left: 5%;
         font-size: 13px;
         line-height: 30px;
-        color: #cccccc;
+        color: #3F3D56;
         height: 30px;
-        border-bottom: 1px solid #cccccc;
+        border-bottom: 1px solid #3F3D56;
         width: 90%;
         text-align: center;
         cursor: pointer;

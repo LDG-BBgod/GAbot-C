@@ -1,8 +1,24 @@
+//////////  하단바 토글  //////////
+
+let viewHeightCheck = $(window).height()
+
+window.addEventListener('resize', () => {
+    let currentViewHeight = $(window).height()
+    if (viewHeightCheck - currentViewHeight > 100) {
+        document.getElementsByClassName('button-submit')[0].style.display = 'none'
+        document.getElementsByClassName('error')[0].style.display = 'none'
+    }
+    else{
+        document.getElementsByClassName('button-submit')[0].style.display = 'block'
+        document.getElementsByClassName('error')[0].style.display = 'block'
+    }
+})
+
 //////////  체류 시간  //////////
 
 if (typeof document.hidden !== "undefined") {
     visibilityChangeEventName = "visibilitychange";
-} else if (typeof document.mozHidden !== "undefined") {
+} else if (typeof document.mozHidden !== "undefined") {s
     visibilityChangeEventName = "mozvisibilitychange";
 } else if (typeof document.msHidden !== "undefined") {
     visibilityChangeEventName = "msvisibilitychange";
@@ -369,11 +385,24 @@ function submitFunction() {
             window.location.reload()
         }
         else  {
-            alert('예약이 완료되었습니다.')
             document.getElementById('form_id_selectType').value = dataArr[2]
             document.getElementById('form_id_phone').value = dataArr[3]
             document.getElementById('form_id_consultingDate').value = dataArr[0]
             document.getElementById('form_id_consultingTime').value = dataArr[1]
+            $.ajax({
+                type: 'GET',
+                url: '/sendmessage/',
+                dataType: 'json',
+                async: false,
+                data: {
+                    'dataType': 'consulting',
+                    'selectType': dataArr[2],
+                    'phone': dataArr[3],
+                    'consultingDate': dataArr[0],
+                    'consultingTime': dataArr[1],
+                }
+            })
+            alert('예약이 완료되었습니다.')
     
             var form = document.form
             form.submit()
