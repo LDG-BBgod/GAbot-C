@@ -1,0 +1,11 @@
+requests==2.27.1
+asgiref==3.4.1
+Django==4.0.1
+sqlparse==0.4.2
+tzdata==2021.5
+image==1.5.33
+selenium==4.4.3
+beautifulsoup4==4.11.1
+numpy==1.23.2
+CaptchaCracker==0.0.6
+PyMySQL==1.0.2
